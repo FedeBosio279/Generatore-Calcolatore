@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\feder\\Documents\\GitHub\\calcolamedia\\calcolamedia\\calcolamedia.csproj",
+      "projectUniqueName": "C:\\Users\\feder\\Documents\\GitHub\\Generatore-Calcolatore\\calcolamedia\\calcolamedia.csproj",
       "projectName": "calcolamedia",
-      "projectPath": "C:\\Users\\feder\\Documents\\GitHub\\calcolamedia\\calcolamedia\\calcolamedia.csproj",
+      "projectPath": "C:\\Users\\feder\\Documents\\GitHub\\Generatore-Calcolatore\\calcolamedia\\calcolamedia.csproj",
       "packagesPath": "C:\\Users\\feder\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\feder\\Documents\\GitHub\\calcolamedia\\calcolamedia\\obj\\",
+      "outputPath": "C:\\Users\\feder\\Documents\\GitHub\\Generatore-Calcolatore\\calcolamedia\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\feder\\AppData\\Roaming\\NuGet\\NuGet.Config"
