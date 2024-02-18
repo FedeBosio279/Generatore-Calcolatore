@@ -9,26 +9,42 @@ int[] valori = new int[10];
 Console.WriteLine("Inserisci il tuo nome:");
 string nome = Console.ReadLine();
 
-//Fa scegliere all'utente che vuole fare 0 = arresto programma, 1 = generatore di numeri, 2 = calcolatore della media
-Console.WriteLine($"Di che hai bisogno {nome}?\nDigita 0 per arrestare il programma\nDigita 1 per il generatore di numeri\nDigita 2 per il calcolatore della media");
+//Fa scegliere all'utente che vuole fare 1 = arresto programma, 2 = generatore di numeri, 3 = calcolatore della media
+Console.WriteLine($"Di che hai bisogno {nome}?\nDigita 1 per arrestare il programma\nDigita 2 per il generatore di numeri\nDigita 3 per il calcolatore della media");
 int scelta = Int32.Parse(Console.ReadLine());
 
-//0 = arresto programma
 if (scelta == 0)
+{
+        Console.WriteLine("Digita cosa cercare:");
+        string ricerca = Console.ReadLine();
+        
+        Console.WriteLine("Digita la stringa di valori in cui cercare:");
+        string stringa = Console.ReadLine();
+
+        int count = 0;
+        int index = 0;
+        while ((index = stringa.IndexOf(ricerca, index)) != -1)
+        {
+            index += ricerca.Length;
+            count++;
+        }
+}
+//1 = arresto programma
+if (scelta == 1)
 {
     return;
 }
 
-//1 = generatore di numeri 
-else if (scelta == 1)
+//2 = generatore di numeri 
+else if (scelta == 2)
 {
     Console.WriteLine("Digita limite (es. 100 quindi genererà da 1 a 100)");
     rnd = random.Next(1, Int32.Parse(Console.ReadLine()));
     Console.WriteLine($"Il numero generato è: \t{rnd}");
 } 
 
-//2 = calcolatore della media
-else if (scelta == 2)
+//3 = calcolatore della media
+else if (scelta == 3)
 {
 Console.WriteLine("Inserisci dei numeri per calcolarne le medie (minimo 2 numerei; massimo 10 numeri)");
 
