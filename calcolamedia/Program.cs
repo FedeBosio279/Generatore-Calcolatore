@@ -1,4 +1,4 @@
-//Dichiarazioni var
+//Dichiarazioni var e matrici
 Random random = new Random();
 int rnd;
 decimal media;
