@@ -1,4 +1,6 @@
 {
+Random random = new Random();
+int rnd;
 decimal media;
 decimal Media;
 int[] valori = new int[10];
@@ -6,6 +8,16 @@ int[] valori = new int[10];
 Console.WriteLine("Inserisci il tuo nome:");
 string nome = Console.ReadLine();
 
+Console.WriteLine($"Di che hai bisogno {nome}?\n Digita 1 per il generatore di numeri\nDigita 2 per il calcolatore della media");
+
+if (Int32.Parse(Console.ReadLine()) == 1)
+{
+    Console.WriteLine("Digita limite (es. 100 quindi genererà da 1 a 100)");
+    rnd = random.Next(1, Int32.Parse(Console.ReadLine()));
+    Console.WriteLine($"Il numero generato è: \t{rnd}");
+}
+else if (Int32.Parse(Console.ReadLine()) == 2)
+{
 Console.WriteLine("Inserisci dei numeri per calcolarne le medie (minimo 2 numerei; massimo 10 numeri)");
 
 valori[0] = Int32.Parse(Console.ReadLine());
@@ -118,5 +130,6 @@ else if (continua == "NO")
     media = (valori[0]+valori[1]);
     Media = decimal.Round(media/2, 2);
     Console.WriteLine(($"La media di questi numeri è:\t {Media}"));
+}
 }
 }
