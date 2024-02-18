@@ -23,3 +23,4 @@ c:\Users\feder\Documents\GitHub\calcolamedia\calcolamedia\obj\Debug\net8.0\refin
 c:\Users\feder\Documents\GitHub\calcolamedia\calcolamedia\obj\Debug\net8.0\calcolamedia.pdb
 c:\Users\feder\Documents\GitHub\calcolamedia\calcolamedia\obj\Debug\net8.0\calcolamedia.genruntimeconfig.cache
 c:\Users\feder\Documents\GitHub\calcolamedia\calcolamedia\obj\Debug\net8.0\ref\calcolamedia.dll
+c:\Users\feder\Documents\GitHub\calcolamedia\calcolamedia\obj\Debug\net8.0\calcolamedia.sourcelink.json
