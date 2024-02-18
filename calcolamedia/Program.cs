@@ -8,18 +8,17 @@ int[] valori = new int[10];
 Console.WriteLine("Inserisci il tuo nome:");
 string nome = Console.ReadLine();
 
-Console.WriteLine($"Di che hai bisogno {nome}?\n Digita 1 per il generatore di numeri\nDigita 2 per il calcolatore della media");
-
-if (Int32.Parse(Console.ReadLine()) == 1)
+Console.WriteLine($"Di che hai bisogno {nome}?\nDigita 1 per il generatore di numeri\nDigita 2 per il calcolatore della media");
+int scelta = Int32.Parse(Console.ReadLine());
+if (scelta == 1)
 {
     Console.WriteLine("Digita limite (es. 100 quindi genererà da 1 a 100)");
     rnd = random.Next(1, Int32.Parse(Console.ReadLine()));
     Console.WriteLine($"Il numero generato è: \t{rnd}");
-}
-else if (Int32.Parse(Console.ReadLine()) == 2)
+} 
+else if (scelta == 2)
 {
 Console.WriteLine("Inserisci dei numeri per calcolarne le medie (minimo 2 numerei; massimo 10 numeri)");
-
 valori[0] = Int32.Parse(Console.ReadLine());
 valori[1] = Int32.Parse(Console.ReadLine());
 Console.WriteLine("Continuare? Si, No");
