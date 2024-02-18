@@ -10,12 +10,23 @@
         Console.WriteLine("Digita 1 per il generatore di numeri");
         Console.WriteLine("Digita 2 per il calcolatore della media");
 
-        int scelta = Int32.Parse(Console.ReadLine());
+        int scelta;
 
+        try
+        {
+            scelta = Int32.Parse(Console.ReadLine());
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Input non valido. Inserire un valore numerico");
+            return;
+        }
+        
         if (scelta == 0)
         {
             return;
         }
+        
         else if (scelta == 1)
         {
             Console.WriteLine("Digita il limite (es. 100 quindi genererà da 1 a 100)");
@@ -23,6 +34,7 @@
             int rnd = random.Next(1, limite + 1);
             Console.WriteLine($"Il numero generato è: {rnd}");
         }
+        
         else if (scelta == 2)
         {
             List<int> valori = new List<int>();
