@@ -1,6 +1,7 @@
     {
         Random random = new Random();
         decimal media;
+        string scelta1;
 
         Console.WriteLine("Inserisci il tuo nome:");
         string nome = Console.ReadLine();
@@ -48,7 +49,9 @@
                 valori.Add(numero);
 
                 Console.WriteLine("Vuoi inserire un altro numero? (Si/No)");
-            } while (Console.ReadLine().ToUpper() == "SI");
+                scelta1 = Console.ReadLine();
+                
+            } while (scelta1.ToUpper() == "SI");
 
             media = CalcolaMedia(valori);
             Console.WriteLine($"La media di questi numeri è: {media}");
