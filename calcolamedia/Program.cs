@@ -106,10 +106,17 @@ class Program
 
             if (sceltaA == "SI")
             {
-                Console.WriteLine($"Inserisci quanti numeri vuoi che vengano generati {nome}!"); // Richiede all'utente di inserire il numero di numeri da generare
+                Console.WriteLine($"Inserisci quanti numeri vuoi che vengano generati {nome}! (Almeno 2)"); // Richiede all'utente di inserire il numero di numeri da generare
 
                 numeriGen = Int32.Parse(Console.ReadLine()); // Legge il numero inserito dall'utente
 
+                if (numeriGen < 2)
+                {
+                    Console.WriteLine("Errore: i numeri da generare devono essere almeno 2");
+                }
+
+                else if (numeriGen >= 2)
+                {
                 List<int> ListaNumeri = new List<int>(); // Lista per memorizzare i numeri generati
                 for (int i = 0; i < numeriGen; i++)
                 {
@@ -136,17 +143,25 @@ class Program
                 else
                 {
                     Console.WriteLine($"Spiacente, il numero giusto era {numeroGiusto}"); // Altrimenti, stampa il numero corretto
-                };
+                }
+                }
             }
             else if (sceltaA == "NO")
             {
                 Console.WriteLine("Nessun problema, ora ti spiegherò."); // Spiega le regole del gioco
                 Console.WriteLine("Questo programma genererà una serie di numeri casuali (scegli te quanti numeri generare), dovrai quindi indovinare quello corretto.");
                 Console.WriteLine("Adesso che hai capito cominciamo");
-                Console.WriteLine($"Inserisci quanti numeri vuoi che vengano generati {nome}!"); // Richiede all'utente di inserire il numero di numeri da generare
+                Console.WriteLine($"Inserisci quanti numeri vuoi che vengano generati {nome}! (Almeno 2)"); // Richiede all'utente di inserire il numero di numeri da generare
 
                 int Nnumeri = Int32.Parse(Console.ReadLine()); // Legge il numero inserito dall'utente
 
+                if (Nnumeri < 2)
+                {
+                    Console.WriteLine("Errore: i numeri da generare devono essere almeno 2");
+                }
+                
+                else if (Nnumeri >= 2)
+                {
                 List<int> ListaNumeri = new List<int>(); // Lista per memorizzare i numeri generati
                 for (int i = 0; i < Nnumeri; i++)
                 {
@@ -178,7 +193,8 @@ class Program
                 else
                 {
                     Console.WriteLine($"Spiacente, il numero giusto era {numeroGiusto}"); // Altrimenti, stampa il numero corretto
-                };
+                }
+                }
             }
         }
     }
