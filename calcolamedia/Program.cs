@@ -138,7 +138,7 @@ class Program
 
                 if (tentativo == numeroGiusto)
                 {
-                    Console.WriteLine("Bravo hai indovinato il numero"); // Stampa un messaggio di successo se il tentativo è corretto
+                    Console.WriteLine("Brav* hai indovinato il numero"); // Stampa un messaggio di successo se il tentativo è corretto
                 }
                 else
                 {
@@ -188,7 +188,7 @@ class Program
 
                 if (tentativo == numeroGiusto)
                 {
-                    Console.WriteLine("Bravo hai indovinato il numero"); // Stampa un messaggio di successo se il tentativo è corretto
+                    Console.WriteLine("Brav* hai indovinato il numero"); // Stampa un messaggio di successo se il tentativo è corretto
                 }
                 else
                 {
