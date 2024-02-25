@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\feder\\Documents\\GitHub\\calcolamedia\\calcolamedia\\calcolamedia.csproj": {}
+    "c:\\Users\\feder\\Documents\\GitHub\\calcolamedia\\calcolamedia\\calcolamedia.csproj": {}
   },
   "projects": {
-    "C:\\Users\\feder\\Documents\\GitHub\\calcolamedia\\calcolamedia\\calcolamedia.csproj": {
+    "c:\\Users\\feder\\Documents\\GitHub\\calcolamedia\\calcolamedia\\calcolamedia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\feder\\Documents\\GitHub\\calcolamedia\\calcolamedia\\calcolamedia.csproj",
+        "projectUniqueName": "c:\\Users\\feder\\Documents\\GitHub\\calcolamedia\\calcolamedia\\calcolamedia.csproj",
         "projectName": "calcolamedia",
-        "projectPath": "C:\\Users\\feder\\Documents\\GitHub\\calcolamedia\\calcolamedia\\calcolamedia.csproj",
+        "projectPath": "c:\\Users\\feder\\Documents\\GitHub\\calcolamedia\\calcolamedia\\calcolamedia.csproj",
         "packagesPath": "C:\\Users\\feder\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\feder\\Documents\\GitHub\\calcolamedia\\calcolamedia\\obj\\",
+        "outputPath": "c:\\Users\\feder\\Documents\\GitHub\\calcolamedia\\calcolamedia\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\feder\\AppData\\Roaming\\NuGet\\NuGet.Config"

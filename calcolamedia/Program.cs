@@ -36,12 +36,12 @@ class Program
         }
         else if (scelta == 1)
         {
-            Console.WriteLine("Digita il limite (es. 100 quindi genererà da 1 a 100)"); // Richiede all'utente di inserire il limite superiore
-            int limite;
+            Console.WriteLine("Digita il limite minore (es. 24 quindi genererà da 24 al limite maggiore che inserirai dopo)"); // Richiede all'utente di inserire il limite minore
+            int limiteMinore;
 
             try
             {
-                limite = Int32.Parse(Console.ReadLine()); // Legge il limite inserito dall'utente
+                limiteMinore = Int32.Parse(Console.ReadLine()); // Legge il limite inserito dall'utente
             }
             catch (FormatException)
             {
@@ -49,8 +49,29 @@ class Program
                 return; // Termina il programma
             }
 
-            int rnd = random.Next(1, limite + 1); // Genera un numero casuale compreso tra 1 e il limite incluso
-            Console.WriteLine($"Il numero generato è: {rnd}"); // Stampa il numero generato        
+            Console.WriteLine($"Digita il limite maggiore (es. 130 quindi genererà da {limiteMinore} a 130)"); //Richiede all'utente di inserire il limite maggiore
+            int limiteMaggiore;
+
+            try
+            {
+                limiteMaggiore = Int32.Parse(Console.ReadLine()); // Legge il limite inserito dall'utente
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Errore: Inserire un numero valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
+                return; // Termina il programma
+            }
+
+            if (limiteMinore >= limiteMaggiore)
+            {
+                Console.WriteLine("Errore, il limite minore deve essere MINORE del limite maggiore"); // Stampa un messaggio di errore se il limite minore è >= del limite maggiore
+            }
+            
+            else
+            {
+            int rnd = random.Next(limiteMinore, limiteMaggiore + 1); // Genera un numero casuale compreso tra limite minore e quello maggiore
+            Console.WriteLine($"Il numero generato è: {rnd}"); // Stampa il numero generato  
+            }      
         }
         else if (scelta == 2)
         {
