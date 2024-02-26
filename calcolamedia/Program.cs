@@ -18,6 +18,7 @@ class Program
         Console.WriteLine("Digita 1 per il generatore di numeri");
         Console.WriteLine("Digita 2 per il calcolatore della media");
         Console.WriteLine("Digita 3 per giocare a 'Indovino' ");
+        Console.WriteLine("Digita 4 per la calcolatrice");
         int scelta; // Variabile per memorizzare la scelta dell'utente
 
         try
@@ -34,6 +35,7 @@ class Program
         {
             return; // Termina il programma se l'utente sceglie 0
         }
+
         else if (scelta == 1)
         {
             Console.WriteLine("Digita il limite minore (es. 24 quindi genererà da 24 al limite maggiore che inserirai dopo)"); // Richiede all'utente di inserire il limite minore
@@ -73,6 +75,7 @@ class Program
             Console.WriteLine($"Il numero generato è: {rnd}"); // Stampa il numero generato  
             }      
         }
+        
         else if (scelta == 2)
         {
             List<int> valori = new List<int>(); // Lista per memorizzare i numeri inseriti dall'utente
@@ -104,6 +107,7 @@ class Program
             media = CalcolaMedia(valori); // Calcola la media dei numeri inseriti
             Console.WriteLine($"La media di questi numeri è: {media}"); // Stampa la media
         }
+        
         else if (scelta == 3)
         {
             Random rnd = new Random(); // Inizializza un nuovo oggetto Random per generare numeri casuali
@@ -217,13 +221,14 @@ class Program
                 }
                 }
             }
+        }
 
             else if (scelta == 4)
             {
-                Console.WriteLine("Benvenuto in una calcolatrice basica.")
+                Console.WriteLine("Benvenuto in una calcolatrice basica.");
                 int num1;
                 int num2;
-                int sceltaB;
+                string sceltaB;
 
                 try
                 {
@@ -260,29 +265,24 @@ class Program
 
                 if (sceltaB == "addizione")
                 {
-                    Console.WriteLine($"Il risultato è: {num1 + num2});
+                    Console.WriteLine($"Il risultato è: {num1 + num2}");
                 }
-
                 else if (sceltaB == "sottrazione")
                 {
-                    Console.WriteLine(num1 - num2)
-                }    
-
+                    Console.WriteLine($"Il risultato è: {num1 - num2}");
+                }
                 else if (sceltaB == "moltiplicazione")
                 {
-                    Console.WriteLine(num1 * num2)
+                    Console.WriteLine($"Il risultato è: {num1 * num2}");
                 }
-
                 else if (sceltaB == "divisione")
                 {
-                    Console.WriteLine(num1 / num2)
+                    Console.WriteLine($"Il risultato è: {num1 / num2}");
                 }
             }
-        }
     }
-
-    static decimal CalcolaMedia(List<int> valori)
-    {
+static decimal CalcolaMedia(List<int> valori)
+{    
         int somma = 0; // Variabile per memorizzare la somma dei numeri
         foreach (int valore in valori)
         {
@@ -291,3 +291,4 @@ class Program
         return decimal.Round((decimal)somma / valori.Count, 2); // Calcola e restituisce la media dei numeri
     }
 }
+
