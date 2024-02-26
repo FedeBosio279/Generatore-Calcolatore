@@ -217,6 +217,67 @@ class Program
                 }
                 }
             }
+
+            else if (scelta == 4)
+            {
+                Console.WriteLine("Benvenuto in una calcolatrice basica.")
+                int num1;
+                int num2;
+                int sceltaB;
+
+                try
+                {
+                    Console.WriteLine("Inserisci un numero:"); // Richiede all'utente di inserire un numero
+                    num1 = Int32.Parse(Console.ReadLine()); // Legge il numero inserito dall'utente
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Errore: Inserire un numero valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
+                    return; // Termina il programma
+                }
+
+                try
+                {
+                    Console.WriteLine("Inserisci un altro numero:"); // Richiede all'utente di inserire un numero
+                    num2 = Int32.Parse(Console.ReadLine()); // Legge il numero inserito dall'utente
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Errore: Inserire un numero valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
+                    return; // Termina il programma
+                }
+
+                try
+                {
+                    Console.WriteLine("Che operazione vuoi eseguire? (addizione, sottrazione, moltiplicazione, divisione)"); // Richiede all'utente di inserire un numero
+                    sceltaB = (Console.ReadLine().ToUpper()); // Legge l'operazione inserita dall'utente
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Errore: Inserire un operazione valida."); // Stampa un messaggio di errore se l'utente non inserisce un operazione
+                    return; // Termina il programma
+                }
+
+                if (sceltaB == "addizione")
+                {
+                    Console.WriteLine($"Il risultato è: {num1 + num2});
+                }
+
+                else if (sceltaB == "sottrazione")
+                {
+                    Console.WriteLine(num1 - num2)
+                }    
+
+                else if (sceltaB == "moltiplicazione")
+                {
+                    Console.WriteLine(num1 * num2)
+                }
+
+                else if (sceltaB == "divisione")
+                {
+                    Console.WriteLine(num1 / num2)
+                }
+            }
         }
     }
 
