@@ -277,7 +277,15 @@ class Program
                 }
                 else if (sceltaB == "divisione")
                 {
+                    if (num2 == 0)
+                    {
+                        Console.WriteLine("Errore: Non si può dividere per 0"); // Stampa un messaggio di errore se l'utente vuole dividere per 0
+                        return; //Termina il programma
+                    }
+                    else
+                    {
                     Console.WriteLine($"Il risultato è: {num1 / num2}");
+                    }
                 }
             }
     }
