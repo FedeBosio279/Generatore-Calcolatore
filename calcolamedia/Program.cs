@@ -294,6 +294,192 @@ class Program
                 }
             }
         }
+        else if (scelta == 5)
+        {
+            Console.WriteLine("Benvenuto in Acchiappa il numero!");
+            Console.WriteLine("Vedrai un numero, di conseguenza questo numero si nasconderà e tu dovrai indovinare dietro quale numero si trova!\tHai due vite!");
+            
+            int vite = 2;
+
+            int numero = random.Next(1, 5);
+
+            int OO = 01;
+            int O1 = 02;
+            int O2 = 03;
+
+            int sceltaD;
+
+            OO = random.Next(1, 5);
+            O1 = random.Next(1, 5);
+            O2 = random.Next(1, 5);
+            
+            Console.WriteLine($"Il numero è {numero}");
+            Console.WriteLine("Dietro quale valore è?");
+
+            int sceltaC = Int32.Parse(Console.ReadLine());
+
+            if (sceltaC == OO)
+            {
+                if (OO == numero)
+                {
+                    Console.WriteLine($"Hai vinto {nome}!");
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine($"Hai perso una vita {nome}!");
+                    vite = vite - 1;
+                    Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
+                    
+                    sceltaD = Int32.Parse(Console.ReadLine());
+
+                    if (sceltaD == O1)
+                    {
+                    if (O1 == numero)
+                {
+                    Console.WriteLine($"Hai vinto {nome}!");
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine($"Hai perso una vita {nome}!");
+                    vite = vite - 1;
+
+                    if (vite == 0)
+                    {
+                        Console.WriteLine("Hai finito le vite, hai perso!");
+                    }
+                }
+                    }
+                    else if (scelta == 02)
+                    {
+                        if (O2 == numero)
+                {
+                    Console.WriteLine($"Hai vinto {nome}!");
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine($"Hai perso una vita {nome}!");
+                    vite = vite - 1;
+
+                    if (vite == 0)
+                    {
+                        Console.WriteLine("Hai finito le vite, hai perso!");
+                    }
+                }
+                   }
+
+            }
+            }
+            
+            else if (sceltaC == O1)
+            {
+                if (O1 == numero)
+                {
+                    Console.WriteLine($"Hai vinto {nome}!");
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine($"Hai perso una vita {nome}!");
+                    vite = vite - 1;
+                    Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
+                    
+                    sceltaD = Int32.Parse(Console.ReadLine());
+
+                    if (sceltaD == OO)
+                    {
+                    if (OO == numero)
+                {
+                    Console.WriteLine($"Hai vinto {nome}!");
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine($"Hai perso una vita {nome}!");
+                    vite = vite - 1;
+
+                    if (vite == 0)
+                    {
+                        Console.WriteLine("Hai finito le vite, hai perso!");
+                    }
+                }
+                    }
+                    else if (scelta == 02)
+                    {
+                        if (O2 == numero)
+                {
+                    Console.WriteLine($"Hai vinto {nome}!");
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine($"Hai perso una vita {nome}!");
+                    vite = vite - 1;
+
+                    if (vite == 0)
+                    {
+                        Console.WriteLine("Hai finito le vite, hai perso!");
+                    }
+                }
+                    }
+            }
+        }
+        else if (sceltaC == O2)
+            {
+                if (O2 == numero)
+                {
+                    Console.WriteLine($"Hai vinto {nome}!");
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine($"Hai perso una vita {nome}!");
+                    vite = vite - 1;
+                    Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
+                    
+                    sceltaD = Int32.Parse(Console.ReadLine());
+
+                    if (sceltaD == OO)
+                    {
+                    if (OO == numero)
+                {
+                    Console.WriteLine($"Hai vinto {nome}!");
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine($"Hai perso una vita {nome}!");
+                    vite = vite - 1;
+
+                    if (vite == 0)
+                    {
+                        Console.WriteLine("Hai finito le vite, hai perso!");
+                    }
+                }
+                    }
+                    else if (scelta == 01)
+                    {
+                        if (O1 == numero)
+                {
+                    Console.WriteLine($"Hai vinto {nome}!");
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine($"Hai perso una vita {nome}!");
+                    vite = vite - 1;
+
+                    if (vite == 0)
+                    {
+                        Console.WriteLine("Hai finito le vite, hai perso!");
+                    }
+                }
+                    }
+            }
+        }
+        }
     }
     static decimal CalcolaMedia(List<int> valori)
     {
@@ -305,4 +491,3 @@ class Program
         return decimal.Round((decimal)somma / valori.Count, 2); // Calcola e restituisce la media dei numeri
     }
 }
-
