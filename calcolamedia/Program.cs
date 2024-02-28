@@ -294,31 +294,101 @@ class Program
                 }
             }
         }
-        else if (scelta == 5)
+ else if (scelta == 5)
+{
+    Console.WriteLine("Benvenuto in Acchiappa il numero!");
+    Console.WriteLine("Vedrai un numero, di conseguenza questo numero si nasconderà e tu dovrai indovinare dietro quale numero si trova!\nHai due vite!");
+
+    int vite = 2;
+
+    int numero = random.Next(5, 10);
+
+    int OO = 1;
+    int O1 = 2;
+    int O2 = 3;
+
+    Console.WriteLine($"{OO}\n{O1}\n{O2}");
+
+    int sceltaD;
+
+    Console.WriteLine($"Il numero è {numero}");
+    Console.WriteLine("Dietro quale valore è?");
+
+    int sceltaC = Int32.Parse(Console.ReadLine());
+
+    if (sceltaC == OO)
+    {
+        OO = random.Next(5, 10);
+        if (OO == numero)
         {
-            Console.WriteLine("Benvenuto in Acchiappa il numero!");
-            Console.WriteLine("Vedrai un numero, di conseguenza questo numero si nasconderà e tu dovrai indovinare dietro quale numero si trova!\tHai due vite!");
-            
-            int vite = 2;
+            Console.WriteLine($"Hai vinto {nome}!");
+            return;
+        }
+        else
+        {
+            Console.WriteLine($"Hai perso una vita {nome}!");
+            vite = vite - 1;
+            Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
 
-            int numero = random.Next(1, 5);
+            sceltaD = Int32.Parse(Console.ReadLine());
 
-            int OO = 01;
-            int O1 = 02;
-            int O2 = 03;
+            O1 = 2;
+            if (sceltaD == O1)
+            {
+                O1 = random.Next(5, 10);
+                if (O1 == numero)
+                {
+                    Console.WriteLine($"Hai vinto {nome}!");
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine($"Hai perso una vita {nome}!");
+                    vite = vite - 1;
 
-            int sceltaD;
+                    if (vite == 0)
+                    {
+                        Console.WriteLine("Hai finito le vite, hai perso!");
+                    }
+                }
+            }
+        }
+    }
+    else if (sceltaC == O2)
+    {
+        O2 = random.Next(5, 10);
+        if (O2 == numero)
+        {
+            Console.WriteLine($"Hai vinto {nome}!");
+            return;
+        }
+        else
+        {
+            Console.WriteLine($"Hai perso una vita {nome}!");
+            vite = vite - 1;
 
-            OO = random.Next(1, 5);
-            O1 = random.Next(1, 5);
-            O2 = random.Next(1, 5);
-            
-            Console.WriteLine($"Il numero è {numero}");
-            Console.WriteLine("Dietro quale valore è?");
+            if (vite == 0)
+            {
+                Console.WriteLine("Hai finito le vite, hai perso!");
+            }
+        }
+    }
+    else if (sceltaC == O1)
+    {
+        if (O1 == numero)
+        {
+            Console.WriteLine($"Hai vinto {nome}!");
+            return;
+        }
+        else
+        {
+            Console.WriteLine($"Hai perso una vita {nome}!");
+            vite = vite - 1;
+            Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
 
-            int sceltaC = Int32.Parse(Console.ReadLine());
+            sceltaD = Int32.Parse(Console.ReadLine());
 
-            if (sceltaC == OO)
+            if (sceltaD == OO)
             {
                 if (OO == numero)
                 {
@@ -329,104 +399,14 @@ class Program
                 {
                     Console.WriteLine($"Hai perso una vita {nome}!");
                     vite = vite - 1;
-                    Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
-                    
-                    sceltaD = Int32.Parse(Console.ReadLine());
-
-                    if (sceltaD == O1)
-                    {
-                    if (O1 == numero)
-                {
-                    Console.WriteLine($"Hai vinto {nome}!");
-                    return;
-                }
-                else
-                {
-                    Console.WriteLine($"Hai perso una vita {nome}!");
-                    vite = vite - 1;
 
                     if (vite == 0)
                     {
                         Console.WriteLine("Hai finito le vite, hai perso!");
                     }
                 }
-                    }
-                    else if (scelta == 02)
-                    {
-                        if (O2 == numero)
-                {
-                    Console.WriteLine($"Hai vinto {nome}!");
-                    return;
-                }
-                else
-                {
-                    Console.WriteLine($"Hai perso una vita {nome}!");
-                    vite = vite - 1;
-
-                    if (vite == 0)
-                    {
-                        Console.WriteLine("Hai finito le vite, hai perso!");
-                    }
-                }
-                   }
-
             }
-            }
-            
-            else if (sceltaC == O1)
-            {
-                if (O1 == numero)
-                {
-                    Console.WriteLine($"Hai vinto {nome}!");
-                    return;
-                }
-                else
-                {
-                    Console.WriteLine($"Hai perso una vita {nome}!");
-                    vite = vite - 1;
-                    Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
-                    
-                    sceltaD = Int32.Parse(Console.ReadLine());
-
-                    if (sceltaD == OO)
-                    {
-                    if (OO == numero)
-                {
-                    Console.WriteLine($"Hai vinto {nome}!");
-                    return;
-                }
-                else
-                {
-                    Console.WriteLine($"Hai perso una vita {nome}!");
-                    vite = vite - 1;
-
-                    if (vite == 0)
-                    {
-                        Console.WriteLine("Hai finito le vite, hai perso!");
-                    }
-                }
-                    }
-                    else if (scelta == 02)
-                    {
-                        if (O2 == numero)
-                {
-                    Console.WriteLine($"Hai vinto {nome}!");
-                    return;
-                }
-                else
-                {
-                    Console.WriteLine($"Hai perso una vita {nome}!");
-                    vite = vite - 1;
-
-                    if (vite == 0)
-                    {
-                        Console.WriteLine("Hai finito le vite, hai perso!");
-                    }
-                }
-                    }
-            }
-        }
-        else if (sceltaC == O2)
+            else if (scelta == 02)
             {
                 if (O2 == numero)
                 {
@@ -437,57 +417,68 @@ class Program
                 {
                     Console.WriteLine($"Hai perso una vita {nome}!");
                     vite = vite - 1;
-                    Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
-                    
-                    sceltaD = Int32.Parse(Console.ReadLine());
-
-                    if (sceltaD == OO)
-                    {
-                    if (OO == numero)
-                {
-                    Console.WriteLine($"Hai vinto {nome}!");
-                    return;
-                }
-                else
-                {
-                    Console.WriteLine($"Hai perso una vita {nome}!");
-                    vite = vite - 1;
 
                     if (vite == 0)
                     {
                         Console.WriteLine("Hai finito le vite, hai perso!");
                     }
                 }
-                    }
-                    else if (scelta == 01)
-                    {
-                        if (O1 == numero)
-                {
-                    Console.WriteLine($"Hai vinto {nome}!");
-                    return;
-                }
-                else
-                {
-                    Console.WriteLine($"Hai perso una vita {nome}!");
-                    vite = vite - 1;
-
-                    if (vite == 0)
-                    {
-                        Console.WriteLine("Hai finito le vite, hai perso!");
-                    }
-                }
-                    }
             }
         }
+    }
+    else if (sceltaC == O2)
+    {
+        if (O2 == numero)
+        {
+            Console.WriteLine($"Hai vinto {nome}!");
+            return;
+        }
+        else
+        {
+            Console.WriteLine($"Hai perso una vita {nome}!");
+            vite = vite - 1;
+            Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
+
+            sceltaD = Int32.Parse(Console.ReadLine());
+
+            if (sceltaD == OO)
+            {
+                if (OO == numero)
+                {
+                    Console.WriteLine($"Hai vinto {nome}!");
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine($"Hai perso una vita {nome}!");
+                    vite = vite - 1;
+
+                    if (vite == 0)
+                    {
+                        Console.WriteLine("Hai finito le vite, hai perso!");
+                    }
+                }
+            }
+            else if (scelta == 01)
+            {
+                if (O1 == numero)
+                {
+                    Console.WriteLine($"Hai vinto {nome}!");
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine($"Hai perso una vita {nome}!");
+                    vite = vite - 1;
+
+                    if (vite == 0)
+                    {
+                        Console.WriteLine("Hai finito le vite, hai perso!");
+                    }
+                }
+            }
         }
     }
-    static decimal CalcolaMedia(List<int> valori)
-    {
-        int somma = 0; // Variabile per memorizzare la somma dei numeri
-        foreach (int valore in valori)
-        {
-            somma += valore; // Aggiunge il valore corrente alla somma totale
-        }
-        return decimal.Round((decimal)somma / valori.Count, 2); // Calcola e restituisce la media dei numeri
+}
     }
 }
