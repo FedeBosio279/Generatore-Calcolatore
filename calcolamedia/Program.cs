@@ -298,12 +298,12 @@ class Program
  else if (scelta == 5)
 {
     Console.WriteLine("Benvenuto a Indovina il Numero!");
-    Console.WriteLine("In questo gioco, ti verrà mostrato un numero segreto compreso tra 5 e 9.");
+    Console.WriteLine("In questo gioco, ti verrà mostrato un numero segreto compreso tra 5 e 10.");
     Console.WriteLine("Il numero verrà nascosto, e il tuo compito sarà indovinare dietro quale valore si trova!");
     Console.WriteLine("Hai a disposizione due tentativi per indovinare correttamente.");
 
     int vite = 2;
-    int numero = random.Next(5, 10);
+    int numero = random.Next(5, 10+1);
     int OO = 1;
     int O1 = 2;
     int O2 = 3;
