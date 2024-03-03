@@ -310,9 +310,18 @@ class Program
     Console.WriteLine($"{OO}\n{O1}\n{O2}");
 
     int sceltaD;
+    int sceltaC;
 
-    Console.WriteLine("\nDietro quale valore è?");
-    int sceltaC = Int32.Parse(Console.ReadLine());
+    try
+            {
+                Console.WriteLine("\nDietro quale valore è?");
+                sceltaC = Int32.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Errore: Inserire un valore valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
+                return; // Termina il programma
+            }
 
     if (sceltaC == OO)
     {
@@ -326,8 +335,16 @@ class Program
         {
             Console.WriteLine($"Hai perso una vita {nome}!");
             vite = vite - 1;
-            Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
-            sceltaD = Int32.Parse(Console.ReadLine());
+            try
+            {
+                Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
+                sceltaD = Int32.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Errore: Inserire un valore valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
+                return; // Termina il programma
+            }
 
             O1 = 2;
             if (sceltaD == O1)
@@ -345,7 +362,7 @@ class Program
 
                     if (vite == 0)
                     {
-                        Console.WriteLine("Hai finito le vite, hai perso!");
+                        Console.WriteLine($"Hai finito le vite, hai perso {nome}!");
                     }
                 }
             }
@@ -366,7 +383,7 @@ class Program
 
             if (vite == 0)
             {
-                Console.WriteLine("Hai finito le vite, hai perso!");
+                Console.WriteLine($"Hai finito le vite, hai perso {nome}!");
             }
         }
     }
@@ -381,8 +398,16 @@ class Program
         {
             Console.WriteLine($"Hai perso una vita {nome}!");
             vite = vite - 1;
-            Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
-            sceltaD = Int32.Parse(Console.ReadLine());
+            try
+            {
+                Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
+                sceltaD = Int32.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Errore: Inserire un valore valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
+                return; // Termina il programma
+            }
 
             if (sceltaD == OO)
             {
@@ -398,7 +423,7 @@ class Program
 
                     if (vite == 0)
                     {
-                        Console.WriteLine("Hai finito le vite, hai perso!");
+                        Console.WriteLine($"Hai finito le vite, hai perso {nome}!");
                     }
                 }
             }
@@ -416,7 +441,7 @@ class Program
 
                     if (vite == 0)
                     {
-                        Console.WriteLine("Hai finito le vite, hai perso!");
+                        Console.WriteLine($"Hai finito le vite, hai perso {nome}!");
                     }
                 }
             }
@@ -433,8 +458,16 @@ class Program
         {
             Console.WriteLine($"Hai perso una vita {nome}!");
             vite = vite - 1;
-            Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
-            sceltaD = Int32.Parse(Console.ReadLine());
+            try
+            {
+                Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
+                sceltaD = Int32.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Errore: Inserire un valore valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
+                return; // Termina il programma
+            }
 
             if (sceltaD == OO)
             {
@@ -447,10 +480,20 @@ class Program
                 {
                     Console.WriteLine($"Hai perso una vita {nome}!");
                     vite = vite - 1;
+                    try
+            {
+                Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
+                sceltaD = Int32.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Errore: Inserire un valore valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
+                return; // Termina il programma
+            }
 
                     if (vite == 0)
                     {
-                        Console.WriteLine("Hai finito le vite, hai perso!");
+                        Console.WriteLine($"Hai finito le vite, hai perso {nome}!");
                     }
                 }
             }
@@ -465,10 +508,20 @@ class Program
                 {
                     Console.WriteLine($"Hai perso una vita {nome}!");
                     vite = vite - 1;
+                    try
+            {
+                Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
+                sceltaD = Int32.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Errore: Inserire un valore valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
+                return; // Termina il programma
+            }
 
                     if (vite == 0)
                     {
-                        Console.WriteLine("Hai finito le vite, hai perso!");
+                        Console.WriteLine($"Hai finito le vite, hai perso {nome}!");
                     }
                 }
             }
