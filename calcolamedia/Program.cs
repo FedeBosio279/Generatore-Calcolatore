@@ -17,8 +17,9 @@ class Program
         Console.WriteLine("Digita 0 per arrestare il programma");
         Console.WriteLine("Digita 1 per il generatore di numeri");
         Console.WriteLine("Digita 2 per il calcolatore della media");
-        Console.WriteLine("Digita 3 per giocare a 'Indovino' ");
+        Console.WriteLine("Digita 3 per giocare a \"Indovino\" ");
         Console.WriteLine("Digita 4 per la calcolatrice");
+        Console.WriteLine("Digita 5 per \"Acchiappa il numero!\" ");
         int scelta; // Variabile per memorizzare la scelta dell'utente
 
         try
@@ -300,20 +301,17 @@ class Program
     Console.WriteLine("Vedrai un numero, di conseguenza questo numero si nasconderà e tu dovrai indovinare dietro quale numero si trova!\nHai due vite!");
 
     int vite = 2;
-
     int numero = random.Next(5, 10);
-
     int OO = 1;
     int O1 = 2;
     int O2 = 3;
 
+    Console.WriteLine($"Il numero è {numero}\n");
     Console.WriteLine($"{OO}\n{O1}\n{O2}");
 
     int sceltaD;
 
-    Console.WriteLine($"Il numero è {numero}");
-    Console.WriteLine("Dietro quale valore è?");
-
+    Console.WriteLine("\nDietro quale valore è?");
     int sceltaC = Int32.Parse(Console.ReadLine());
 
     if (sceltaC == OO)
@@ -329,7 +327,6 @@ class Program
             Console.WriteLine($"Hai perso una vita {nome}!");
             vite = vite - 1;
             Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
-
             sceltaD = Int32.Parse(Console.ReadLine());
 
             O1 = 2;
@@ -385,7 +382,6 @@ class Program
             Console.WriteLine($"Hai perso una vita {nome}!");
             vite = vite - 1;
             Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
-
             sceltaD = Int32.Parse(Console.ReadLine());
 
             if (sceltaD == OO)
@@ -406,7 +402,7 @@ class Program
                     }
                 }
             }
-            else if (scelta == 02)
+            else if (sceltaD == O2)
             {
                 if (O2 == numero)
                 {
@@ -438,7 +434,6 @@ class Program
             Console.WriteLine($"Hai perso una vita {nome}!");
             vite = vite - 1;
             Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
-
             sceltaD = Int32.Parse(Console.ReadLine());
 
             if (sceltaD == OO)
@@ -459,7 +454,7 @@ class Program
                     }
                 }
             }
-            else if (scelta == 01)
+            else if (sceltaD == O1)
             {
                 if (O1 == numero)
                 {
@@ -480,5 +475,15 @@ class Program
         }
     }
 }
+
+    static decimal CalcolaMedia(List<int> valori)
+    {
+        int somma = 0; // Variabile per memorizzare la somma dei numeri
+        foreach (int valore in valori)
+        {
+            somma += valore; // Aggiunge il valore corrente alla somma totale
+        }
+        return decimal.Round((decimal)somma / valori.Count, 2); // Calcola e restituisce la media dei numeri
+    }
     }
 }
