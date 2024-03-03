@@ -297,37 +297,51 @@ class Program
         }
  else if (scelta == 5)
 {
+    // Messaggi di benvenuto e istruzioni del gioco
     Console.WriteLine("Benvenuto a Indovina il Numero!");
     Console.WriteLine("In questo gioco, ti verrà mostrato un numero segreto compreso tra 5 e 10.");
     Console.WriteLine("Il numero verrà nascosto, e il tuo compito sarà indovinare dietro quale valore si trova!");
     Console.WriteLine("Hai a disposizione due tentativi per indovinare correttamente.");
 
+    // Inizializzazione delle variabili
     int vite = 2;
-    int numero = random.Next(5, 10+1);
+    int numero = random.Next(5, 11);
     int OO = 1;
     int O1 = 2;
     int O2 = 3;
 
+    // Visualizzazione del numero segreto e delle opzioni
     Console.WriteLine($"Il numero è {numero}\n");
     Console.WriteLine($"{OO}\n{O1}\n{O2}");
 
+    // Dichiarazione delle variabili per la scelta dell'utente
     int sceltaD;
     int sceltaC;
 
     try
-            {
-                Console.WriteLine("\nDietro quale valore è?");
-                sceltaC = Int32.Parse(Console.ReadLine());
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Errore: Inserire un valore valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
-                return; // Termina il programma
-            }
+    {
+        // Input della scelta dell'utente e gestione degli errori
+        Console.WriteLine("\nDietro quale valore è?");
+        sceltaC = Int32.Parse(Console.ReadLine());
 
+        // Verifica se la scelta dell'utente è valida
+        if (sceltaC < OO || sceltaC > O2)
+        {
+            Console.WriteLine($"Errore: Inserire un valore compreso fra {OO} e {O2}.");
+            return;
+        }
+    }
+    catch (FormatException)
+    {
+        Console.WriteLine("Errore: Inserire un valore valido.");
+        return;
+    }
+
+    // Gestione del primo livello di scelta
     if (sceltaC == OO)
     {
-        OO = random.Next(5, 10);
+        // Generazione di un nuovo valore per OO e verifica della correttezza
+        OO = random.Next(5, 11);
         if (OO == numero)
         {
             Console.WriteLine($"Hai vinto {nome}!");
@@ -336,54 +350,67 @@ class Program
         else
         {
             Console.WriteLine($"Hai perso una vita {nome}!");
-            vite = vite - 1;
-            try
+            vite--;
+            if (vite > 0)
             {
+                // Richiesta di un altro tentativo se ci sono vite rimanenti
                 Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
-                sceltaD = Int32.Parse(Console.ReadLine());
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Errore: Inserire un valore valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
-                return; // Termina il programma
-            }
-
-            O1 = 2;
-            if (sceltaD == O1)
-            {
-                O1 = random.Next(5, 10);
-                if (O1 == numero)
+                try
                 {
-                    Console.WriteLine($"Hai vinto {nome}!");
-                    return;
-                }
-                else
-                {
-                    Console.WriteLine($"Hai perso una vita {nome}!");
-                    vite = vite - 1;
-
-                    if (vite == 0)
+                    sceltaD = Int32.Parse(Console.ReadLine());
+                    // Verifica se la scelta dell'utente è valida
+                    if (sceltaD < OO || sceltaD > O2)
                     {
-                        Console.WriteLine($"Hai finito le vite, hai perso {nome}!");
+                        Console.WriteLine($"Errore: Inserire un valore compreso fra {OO} e {O2}.");
+                        return;
+                    }
+                    // Gestione del secondo livello di scelta
+                    if (sceltaD == O1)
+                    {
+                        // Generazione di un nuovo valore per O1 e verifica della correttezza
+                        O1 = random.Next(5, 11);
+                        if (O1 == numero)
+                        {
+                            Console.WriteLine($"Hai vinto {nome}!");
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Hai perso una vita {nome}!");
+                            vite--;
+                            if (vite == 0)
+                            {
+                                Console.WriteLine($"Hai finito le vite, hai perso {nome}!");
+                            }
+                        }
+                    }
+                    else if (sceltaD == O2)
+                    {
+                        // Generazione di un nuovo valore per O2 e verifica della correttezza
+                        O2 = random.Next(5, 11);
+                        if (O2 == numero)
+                        {
+                            Console.WriteLine($"Hai vinto {nome}!");
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Hai perso una vita {nome}!");
+                            vite--;
+                            if (vite == 0)
+                            {
+                                Console.WriteLine($"Hai finito le vite, hai perso {nome}!");
+                            }
+                        }
                     }
                 }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Errore: Inserire un valore valido.");
+                    return;
+                }
             }
-        }
-    }
-    else if (sceltaC == O2)
-    {
-        O2 = random.Next(5, 10);
-        if (O2 == numero)
-        {
-            Console.WriteLine($"Hai vinto {nome}!");
-            return;
-        }
-        else
-        {
-            Console.WriteLine($"Hai perso una vita {nome}!");
-            vite = vite - 1;
-
-            if (vite == 0)
+            else
             {
                 Console.WriteLine($"Hai finito le vite, hai perso {nome}!");
             }
@@ -391,6 +418,7 @@ class Program
     }
     else if (sceltaC == O1)
     {
+        // Gestione della scelta dietro O1
         if (O1 == numero)
         {
             Console.WriteLine($"Hai vinto {nome}!");
@@ -399,58 +427,75 @@ class Program
         else
         {
             Console.WriteLine($"Hai perso una vita {nome}!");
-            vite = vite - 1;
-            try
+            vite--;
+            if (vite > 0)
             {
+                // Richiesta di un altro tentativo se ci sono vite rimanenti
                 Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
-                sceltaD = Int32.Parse(Console.ReadLine());
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Errore: Inserire un valore valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
-                return; // Termina il programma
-            }
-
-            if (sceltaD == OO)
-            {
-                if (OO == numero)
+                try
                 {
-                    Console.WriteLine($"Hai vinto {nome}!");
-                    return;
-                }
-                else
-                {
-                    Console.WriteLine($"Hai perso una vita {nome}!");
-                    vite = vite - 1;
-
-                    if (vite == 0)
+                    sceltaD = Int32.Parse(Console.ReadLine());
+                    // Verifica se la scelta dell'utente è valida
+                    if (sceltaD < OO || sceltaD > O2)
                     {
-                        Console.WriteLine($"Hai finito le vite, hai perso {nome}!");
+                        Console.WriteLine($"Errore: Inserire un valore compreso fra {OO} e {O2}.");
+                        return;
+                    }
+                    // Gestione del secondo livello di scelta
+                    if (sceltaD == OO)
+                    {
+                        // Generazione di un nuovo valore per OO e verifica della correttezza
+                        OO = random.Next(5, 11);
+                        if (OO == numero)
+                        {
+                            Console.WriteLine($"Hai vinto {nome}!");
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Hai perso una vita {nome}!");
+                            vite--;
+                            if (vite == 0)
+                            {
+                                Console.WriteLine($"Hai finito le vite, hai perso {nome}!");
+                            }
+                        }
+                    }
+                    else if (sceltaD == O2)
+                    {
+                        // Generazione di un nuovo valore per O2 e verifica della correttezza
+                        O2 = random.Next(5, 11);
+                        if (O2 == numero)
+                        {
+                            Console.WriteLine($"Hai vinto {nome}!");
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Hai perso una vita {nome}!");
+                            vite--;
+                            if (vite == 0)
+                            {
+                                Console.WriteLine($"Hai finito le vite, hai perso {nome}!");
+                            }
+                        }
                     }
                 }
-            }
-            else if (sceltaD == O2)
-            {
-                if (O2 == numero)
+                catch (FormatException)
                 {
-                    Console.WriteLine($"Hai vinto {nome}!");
+                    Console.WriteLine("Errore: Inserire un valore valido.");
                     return;
                 }
-                else
-                {
-                    Console.WriteLine($"Hai perso una vita {nome}!");
-                    vite = vite - 1;
-
-                    if (vite == 0)
-                    {
-                        Console.WriteLine($"Hai finito le vite, hai perso {nome}!");
-                    }
-                }
+            }
+            else
+            {
+                Console.WriteLine($"Hai finito le vite, hai perso {nome}!");
             }
         }
     }
     else if (sceltaC == O2)
     {
+        // Gestione della scelta dietro O2
         if (O2 == numero)
         {
             Console.WriteLine($"Hai vinto {nome}!");
@@ -459,78 +504,73 @@ class Program
         else
         {
             Console.WriteLine($"Hai perso una vita {nome}!");
-            vite = vite - 1;
-            try
+            vite--;
+            if (vite > 0)
             {
+                // Richiesta di un altro tentativo se ci sono vite rimanenti
                 Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
-                sceltaD = Int32.Parse(Console.ReadLine());
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Errore: Inserire un valore valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
-                return; // Termina il programma
-            }
-
-            if (sceltaD == OO)
-            {
-                if (OO == numero)
+                try
                 {
-                    Console.WriteLine($"Hai vinto {nome}!");
-                    return;
-                }
-                else
-                {
-                    Console.WriteLine($"Hai perso una vita {nome}!");
-                    vite = vite - 1;
-                    try
-            {
-                Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
-                sceltaD = Int32.Parse(Console.ReadLine());
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Errore: Inserire un valore valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
-                return; // Termina il programma
-            }
-
-                    if (vite == 0)
+                    sceltaD = Int32.Parse(Console.ReadLine());
+                    // Verifica se la scelta dell'utente è valida
+                    if (sceltaD < OO || sceltaD > O2)
                     {
-                        Console.WriteLine($"Hai finito le vite, hai perso {nome}!");
+                        Console.WriteLine($"Errore: Inserire un valore compreso fra {OO} e {O2}.");
+                        return;
+                    }
+                    // Gestione del secondo livello di scelta
+                    if (sceltaD == OO)
+                    {
+                        // Generazione di un nuovo valore per OO e verifica della correttezza
+                        OO = random.Next(5, 11);
+                        if (OO == numero)
+                        {
+                            Console.WriteLine($"Hai vinto {nome}!");
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Hai perso una vita {nome}!");
+                            vite--;
+                            if (vite == 0)
+                            {
+                                Console.WriteLine($"Hai finito le vite, hai perso {nome}!");
+                            }
+                        }
+                    }
+                    else if (sceltaD == O1)
+                    {
+                        // Generazione di un nuovo valore per O1 e verifica della correttezza
+                        O1 = random.Next(5, 11);
+                        if (O1 == numero)
+                        {
+                            Console.WriteLine($"Hai vinto {nome}!");
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Hai perso una vita {nome}!");
+                            vite--;
+                            if (vite == 0)
+                            {
+                                Console.WriteLine($"Hai finito le vite, hai perso {nome}!");
+                            }
+                        }
                     }
                 }
-            }
-            else if (sceltaD == O1)
-            {
-                if (O1 == numero)
+                catch (FormatException)
                 {
-                    Console.WriteLine($"Hai vinto {nome}!");
+                    Console.WriteLine("Errore: Inserire un valore valido.");
                     return;
                 }
-                else
-                {
-                    Console.WriteLine($"Hai perso una vita {nome}!");
-                    vite = vite - 1;
-                    try
-            {
-                Console.WriteLine("Riprova, dietro quale valore pensi che sia?");
-                sceltaD = Int32.Parse(Console.ReadLine());
             }
-            catch (FormatException)
+            else
             {
-                Console.WriteLine("Errore: Inserire un valore valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
-                return; // Termina il programma
-            }
-
-                    if (vite == 0)
-                    {
-                        Console.WriteLine($"Hai finito le vite, hai perso {nome}!");
-                    }
-                }
+                Console.WriteLine($"Hai finito le vite, hai perso {nome}!");
             }
         }
     }
 }
-
     static decimal CalcolaMedia(List<int> valori)
     {
         int somma = 0; // Variabile per memorizzare la somma dei numeri
