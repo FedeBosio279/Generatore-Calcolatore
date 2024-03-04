@@ -260,7 +260,7 @@ class Program
             try
             {
                 Console.WriteLine(
-                    "Che operazione vuoi eseguire?\nAddizione\nSottrazione\nMoltiplicazione\nDivisione)"
+                    "Che operazione vuoi eseguire?\nAddizione\nSottrazione\nMoltiplicazione\nDivisione"
                 ); // Richiede all'utente di inserire un numero
                 sceltaB = (Console.ReadLine().ToUpper()); // Legge l'operazione inserita dall'utente
             }
