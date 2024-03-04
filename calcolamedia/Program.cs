@@ -581,4 +581,5 @@ class Program
         return decimal.Round((decimal)somma / valori.Count, 2); // Calcola e restituisce la media dei numeri
     }
     }
+    Console.WriteLine("Ciao");
 }
