@@ -100,7 +100,7 @@ if (confermaNome == "si")
 
             // Conferma della data di nascita
             Console.WriteLine(
-                $"La tua data di nascita è quindi: {dataNascita}//{meseNascita}//{annoNascita}? Si, No"
+                $"La tua data di nascita è quindi: {dataNascita}/{meseNascita}/{annoNascita}? (Si, No)"
             );
             dataCompletaConferma = Console.ReadLine().Trim().ToLower();
 
