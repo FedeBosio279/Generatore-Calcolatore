@@ -1,5 +1,5 @@
 using System;
-
+using System.Collections.Generic;
 
 // Dichiarazione delle variabili
 Console.WriteLine("Inserisci il tuo nome:");
