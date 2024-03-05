@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("calcolamedia")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7387e905cb63de5f427c035b2367a35aa3af9276")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+314e8cc79f7ae7ba85e18522a6e1afd5e6ed2350")]
 [assembly: System.Reflection.AssemblyProductAttribute("calcolamedia")]
 [assembly: System.Reflection.AssemblyTitleAttribute("calcolamedia")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
