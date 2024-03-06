@@ -170,12 +170,15 @@ catch (FormatException)
     return;
 }
 
-
-if (scelta == 0)
+switch (scelta)
 {
-    return; // Termina il programma se l'utente sceglie 0
+
+case 0:
+{
+    break; // Termina il programma se l'utente sceglie 0
 }
-else if (scelta == 1)
+
+case 1:
 {
     Console.WriteLine(
         "Digita il limite minore (es. 24 quindi genererà da 24 al limite maggiore che inserirai dopo)"
@@ -216,8 +219,10 @@ else if (scelta == 1)
         int rnd = random.Next(limiteMinore, limiteMaggiore + 1); // Genera un numero casuale compreso tra limite minore e quello maggiore
         Console.WriteLine($"Il numero generato è: {rnd}"); // Stampa il numero generato
     }
+    break;
 }
-else if (scelta == 2)
+
+case 2:
 {
     List<int> valori = new List<int>(); // Lista per memorizzare i numeri inseriti dall'utente
 
@@ -246,8 +251,10 @@ else if (scelta == 2)
 
     media = CalcolaMedia(valori); // Calcola la media dei numeri inseriti
     Console.WriteLine($"La media di questi numeri è: {media}"); // Stampa la media
+    break;
 }
-else if (scelta == 3)
+
+case 3:
 {
     Random rnd = new Random(); // Inizializza un nuovo oggetto Random per generare numeri casuali
     int numeroGiusto; // Variabile per memorizzare il numero da indovinare
@@ -359,8 +366,10 @@ else if (scelta == 3)
             }
         }
     }
+    break;
 }
-else if (scelta == 4)
+
+case 4:
 {
     Console.WriteLine("Benvenuto in una calcolatrice basica.");
     decimal num1;
@@ -427,8 +436,10 @@ else if (scelta == 4)
             Console.WriteLine($"Il risultato è: {num1 / num2}");
         }
     }
+    break;
 }
-else if (scelta == 5)
+
+case 5:
 {
     // Messaggi di benvenuto e istruzioni del gioco
     Console.WriteLine("Benvenuto a Indovina il Numero!");
@@ -705,6 +716,8 @@ else if (scelta == 5)
             }
         }
     }
+    break;
+}
 }
 static decimal CalcolaMedia(List<int> valori)
 {
