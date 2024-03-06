@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 // Dichiarazione delle variabili
 Console.WriteLine("Inserisci il tuo nome:");
@@ -346,12 +347,12 @@ do
                             Console.WriteLine("\nIndovina il numero giusto");
                             int tentativo = Int32.Parse(Console.ReadLine()); // Legge il tentativo dell'utente
 
-                            // Verifica se il tentativo dell'utente è corretto
+                            // Verifica se il tentativo dell'utente è corretto                            
                             if (tentativo == numeroGiusto)
                             {
                                 Console.WriteLine("Brav* hai indovinato il numero"); // Messaggio di successo se il tentativo è corretto
                             }
-                            else
+                            else if (tentativo != numeroGiusto)
                             {
                                 Console.WriteLine($"Spiacente, il numero giusto era {numeroGiusto}"); // Altrimenti, stampa il numero corretto
                             }
