@@ -143,8 +143,21 @@ if (confermaNome == "si")
         {
             try
             {
-                Console.WriteLine("Inserisci ora una nuova password:");
-                password = Console.ReadLine();
+                bool entry = false;
+                Console.WriteLine("Inserisci ora una nuova password della lunghezza di almeno 5 caratteri e che contenga almeno un carattere speciale:");
+                
+                do
+                {
+                    password = Console.ReadLine();
+
+                if (password.Length >= 5)
+                {
+                    entry = true;
+                }
+                else
+                {
+                    Console.WriteLine("Errore: La password deve contenere almeno 5 caratteri, riprova");
+                }}while (entry == false);
 
                 Console.WriteLine("Ripeti la password:");
                 password2 = Console.ReadLine();
