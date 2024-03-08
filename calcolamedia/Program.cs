@@ -11,8 +11,6 @@ Random random = new Random();
 
 
 decimal media;
-string scelta1;
-
 
 // Saluto iniziale
 Console.WriteLine($"Benvenut* {nome}");
@@ -258,12 +256,11 @@ do
     do
     {
         int numero;
-
-        // Richiesta all'utente di inserire un numero
-        Console.WriteLine("Inserisci un numero:");
-
+        
         try
         {
+        // Richiesta all'utente di inserire un numero
+        Console.WriteLine("Inserisci un numero:");
             numero = Int32.Parse(Console.ReadLine()); // Legge il numero inserito dall'utente
         }
         catch (FormatException)
