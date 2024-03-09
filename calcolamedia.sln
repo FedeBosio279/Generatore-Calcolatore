@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "calcolamedia", "calcolamedia\calcolamedia.csproj", "{AF22B9F6-29E5-4ABA-B1FF-CAE6B0A7AD8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "..\..\..\OneDrive\progetti\blocchi\WebApplication1\WebApplication1.csproj", "{C035F4C7-3AA6-4F2C-93E5-EC48027C221F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{AF22B9F6-29E5-4ABA-B1FF-CAE6B0A7AD8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF22B9F6-29E5-4ABA-B1FF-CAE6B0A7AD8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF22B9F6-29E5-4ABA-B1FF-CAE6B0A7AD8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C035F4C7-3AA6-4F2C-93E5-EC48027C221F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C035F4C7-3AA6-4F2C-93E5-EC48027C221F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C035F4C7-3AA6-4F2C-93E5-EC48027C221F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C035F4C7-3AA6-4F2C-93E5-EC48027C221F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
