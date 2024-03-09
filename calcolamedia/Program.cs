@@ -126,15 +126,28 @@ if (confermaNome == "si")
         {
             try
             {
-                Console.WriteLine("Inserisci ora una nuova password:");
+                do
+                {
+                    Console.WriteLine("Inserisci ora una nuova passoword contentente almeno 3 caratteri:");
                 password = Console.ReadLine();
-
-                Console.WriteLine("Ripeti la password:");
-                password2 = Console.ReadLine();
-
+                if (password.Length >= 3)
+                {
+                    Console.WriteLine("Ripeti la password:");
+                    password2 = Console.ReadLine();
+                }
+                else
+                {
+                    Console.WriteLine("Errore: la password deve contenere almeno 3 caratteri");
+                }
+                }while (password.Length < 3);
+                
                 if (password != password2)
                 {
                     Console.WriteLine("Errore: le password non corrispondono");
+                }
+                else
+                {
+                    Console.WriteLine("Password aggiornata con successo, accesso effettuato");
                 }
             }
             catch (Exception)
@@ -143,8 +156,6 @@ if (confermaNome == "si")
                 return;
             }
         } while (password != password2);
-
-        Console.WriteLine("Password aggiornata con successo, accesso effettuato");
     }
 }
 
@@ -366,7 +377,6 @@ else if (scelta == 4)
     decimal num1;
     decimal num2;
     string sceltaB;
-    int arrot;
 
     try
     {
