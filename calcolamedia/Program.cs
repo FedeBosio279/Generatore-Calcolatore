@@ -191,6 +191,7 @@ do
     Console.WriteLine("Digita 3 per giocare a \"Indovino\" ");
     Console.WriteLine("Digita 4 per la calcolatrice");
     Console.WriteLine("Digita 5 per \"Acchiappa il numero!\" ");
+    Console.WriteLine("Digita 6 per il Contatore di occorrenze di nomi o numeri");
 
     try
     {
@@ -776,6 +777,40 @@ do
                                 Console.WriteLine($"Hai finito le vite, hai perso {nome}!");
                             }
                         }
+                    }
+                    break;
+                }
+
+            case 6:
+                {
+                    Console.WriteLine("Inserisci una lista di nomi separati da virgole");
+                    var inputNomi = Console.ReadLine().ToLower();
+                    string[] nomi = inputNomi.Split(',');
+
+                    Console.WriteLine("Che nome vuoi cercare?");
+                    string input = Console.ReadLine().ToLower().Trim();
+
+                    int count = 0;
+
+                    foreach (var nome1 in nomi)
+                    {
+                        if (nome1.Trim().ToLower() == input)
+                        {
+                            count++;
+                        }
+                    }
+
+                    if (count > 1)
+                    {
+                        Console.WriteLine($"\"{input}\" appare {count} volte.");
+                    }
+                    else if (count == 1)
+                    {
+                        Console.WriteLine($"\"{input}\" appare {count} volta.");
+                    }
+                    else if (count == 0)
+                    {
+                        Console.Write($"{input} non appare nella lista.");
                     }
                     break;
                 }
