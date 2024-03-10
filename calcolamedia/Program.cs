@@ -23,11 +23,11 @@ string confermaNome = "";
 // Loop per assicurarsi che il nome sia corretto
 do
 {
-        Console.WriteLine("Inserisci il tuo nome completo (Nome e Cognome)");
-        nomeCompleto = Console.ReadLine();
+    Console.WriteLine("Inserisci il tuo nome completo (Nome e Cognome)");
+    nomeCompleto = Console.ReadLine();
 
-        do
-        {
+    do
+    {
         Console.WriteLine($"Il tuo nome è quindi: {nomeCompleto}? (Si, No)");
         confermaNome = Console.ReadLine().Trim().ToLower();
 
@@ -35,7 +35,7 @@ do
         {
             Console.WriteLine("Inserimento non valido. Rispondi 'Si' o 'No'.");
         }
-    }while (confermaNome != "si" && confermaNome != "no");
+    } while (confermaNome != "si" && confermaNome != "no");
 } while (confermaNome == "no");
 
 
@@ -50,11 +50,11 @@ if (confermaNome == "si")
     // Loop per richiedere e confermare la data di nascita
     do
     {
-            // Richiesta del giorno di nascita
-            do
+        // Richiesta del giorno di nascita
+        do
+        {
+            try
             {
-                try
-                {
                 Console.WriteLine("Inserisci ora la tua data di nascita\nGiorno? es (02, 12, 31)");
                 dataNascita = Int32.Parse(Console.ReadLine());
                 if (dataNascita > 31 || dataNascita < 1)
@@ -63,19 +63,19 @@ if (confermaNome == "si")
                         "Errore: assicurarsi che il giorno sia stato inserito in modo corretto"
                     );
                 }
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Errore: Assicurarsi di aver inserito un valore numerico intero");
-                }
-            } while (dataNascita > 31 || dataNascita < 1);
-
-            // Richiesta del mese di nascita
-            do
+            }
+            catch (FormatException)
             {
-                try
-                {
-                    Console.WriteLine("Mese? es (1, 2, 5, 12)");
+                Console.WriteLine("Errore: Assicurarsi di aver inserito un valore numerico intero");
+            }
+        } while (dataNascita > 31 || dataNascita < 1);
+
+        // Richiesta del mese di nascita
+        do
+        {
+            try
+            {
+                Console.WriteLine("Mese? es (1, 2, 5, 12)");
                 meseNascita = Int32.Parse(Console.ReadLine());
                 if (meseNascita < 1 || meseNascita > 12)
                 {
@@ -83,18 +83,18 @@ if (confermaNome == "si")
                         "Errore: assicurarsi che il mese sia stato inserito nel modo corretto"
                     );
                 }
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Errore: Assicurarsi di aver inserito un valore numerico intero");
-                }
-            } while (meseNascita < 1 || meseNascita > 12);
-
-            // Richiesta dell'anno di nascita
-            do
+            }
+            catch (FormatException)
             {
-                try
-                {
+                Console.WriteLine("Errore: Assicurarsi di aver inserito un valore numerico intero");
+            }
+        } while (meseNascita < 1 || meseNascita > 12);
+
+        // Richiesta dell'anno di nascita
+        do
+        {
+            try
+            {
                 Console.WriteLine("Inserire l'anno (1104 - 2024)");
                 annoNascita = Int32.Parse(Console.ReadLine());
                 if (annoNascita < 1104 || annoNascita > 2024)
@@ -103,33 +103,33 @@ if (confermaNome == "si")
                         "Errore: assicurarsi che l'anno sia compreso tra il 1104 e il 2024"
                     );
                 }
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Errore: Assicurarsi di aver inserito un valore numerico intero");
-                }
-            } while (annoNascita < 1104 || annoNascita > 2024);
-
-            // Conferma della data di nascita
-            do
-            {
-                try
-                {
-                    Console.WriteLine(
-                $"La tua data di nascita è quindi: {dataNascita}/{meseNascita}/{annoNascita}? (Si, No)"
-            );
-            dataCompletaConferma = Console.ReadLine().Trim().ToLower();
-
-            if (dataCompletaConferma != "si" && dataCompletaConferma != "no")
-            {
-                Console.WriteLine("Inserimento non valido. Rispondi 'Si' o 'No'.");
             }
-                }
-                catch (FormatException)
+            catch (FormatException)
+            {
+                Console.WriteLine("Errore: Assicurarsi di aver inserito un valore numerico intero");
+            }
+        } while (annoNascita < 1104 || annoNascita > 2024);
+
+        // Conferma della data di nascita
+        do
+        {
+            try
+            {
+                Console.WriteLine(
+            $"La tua data di nascita è quindi: {dataNascita}/{meseNascita}/{annoNascita}? (Si, No)"
+        );
+                dataCompletaConferma = Console.ReadLine().Trim().ToLower();
+
+                if (dataCompletaConferma != "si" && dataCompletaConferma != "no")
                 {
-                    Console.WriteLine("Errore: Assicurarsi di aver inserito \"si\" oppure \"no\"");
+                    Console.WriteLine("Inserimento non valido. Rispondi 'Si' o 'No'.");
                 }
-            }while (dataCompletaConferma != "si" && dataCompletaConferma != "no");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Errore: Assicurarsi di aver inserito \"si\" oppure \"no\"");
+            }
+        } while (dataCompletaConferma != "si" && dataCompletaConferma != "no");
     } while (dataCompletaConferma == "no");
 
     // Se la data di nascita è confermata, chiedi e conferma la password
@@ -144,19 +144,20 @@ if (confermaNome == "si")
             {
                 bool entry = false;
                 Console.WriteLine("Inserisci ora una nuova password della lunghezza di almeno 5 caratteri e che contenga almeno un carattere speciale:");
-                
+
                 do
                 {
                     password = Console.ReadLine();
 
-                if (password.Length >= 5)
-                {
-                    entry = true;
-                }
-                else
-                {
-                    Console.WriteLine("Errore: La password deve contenere almeno 5 caratteri, riprova");
-                }}while (entry == false);
+                    if (password.Length >= 5)
+                    {
+                        entry = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Errore: La password deve contenere almeno 5 caratteri, riprova");
+                    }
+                } while (entry == false);
 
                 Console.WriteLine("Ripeti la password:");
                 password2 = Console.ReadLine();
@@ -256,45 +257,45 @@ do
 
 
             case 2:
-{
-    List<int> valori = new List<int>(); // Lista per memorizzare i numeri inseriti dall'utente
+                {
+                    List<int> valori = new List<int>(); // Lista per memorizzare i numeri inseriti dall'utente
 
-    // Richiesta all'utente di inserire i numeri per calcolarne la media
-    Console.WriteLine("Inserisci dei numeri per calcolarne le medie");
+                    // Richiesta all'utente di inserire i numeri per calcolarne la media
+                    Console.WriteLine("Inserisci dei numeri per calcolarne le medie");
 
-    string scelta2 = ""; // Dichiarazione e inizializzazione della variabile scelta2
+                    string scelta2 = ""; // Dichiarazione e inizializzazione della variabile scelta2
 
-    // Ciclo per continuare a richiedere numeri finché l'utente desidera inserirne
-    do
-    {
-        int numero;
-        
-        try
-        {
-        // Richiesta all'utente di inserire un numero
-        Console.WriteLine("Inserisci un numero:");
-            numero = Int32.Parse(Console.ReadLine()); // Legge il numero inserito dall'utente
-        }
-        catch (FormatException)
-        {
-            Console.WriteLine("Errore: Inserire un numero valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
-            continue; // Continua con il prossimo ciclo
-        }
+                    // Ciclo per continuare a richiedere numeri finché l'utente desidera inserirne
+                    do
+                    {
+                        int numero;
 
-        valori.Add(numero); // Aggiunge il numero alla lista
+                        try
+                        {
+                            // Richiesta all'utente di inserire un numero
+                            Console.WriteLine("Inserisci un numero:");
+                            numero = Int32.Parse(Console.ReadLine()); // Legge il numero inserito dall'utente
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Errore: Inserire un numero valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
+                            continue; // Continua con il prossimo ciclo
+                        }
 
-        // Richiesta all'utente se desidera inserire un altro numero
-        Console.WriteLine("Vuoi inserire un altro numero? (Si/No)");
-        scelta2 = Console.ReadLine(); // Legge la scelta dell'utente
-    } while (scelta2.ToUpper() == "SI"); // Continua a richiedere numeri fintanto che l'utente risponde "Si"
+                        valori.Add(numero); // Aggiunge il numero alla lista
 
-    // Calcolo della media dei numeri inseriti
-    media = CalcolaMedia(valori);
+                        // Richiesta all'utente se desidera inserire un altro numero
+                        Console.WriteLine("Vuoi inserire un altro numero? (Si/No)");
+                        scelta2 = Console.ReadLine(); // Legge la scelta dell'utente
+                    } while (scelta2.ToUpper() == "SI"); // Continua a richiedere numeri fintanto che l'utente risponde "Si"
 
-    // Stampa della media calcolata
-    Console.WriteLine($"La media di questi numeri è: {media}");
-    break;
-}
+                    // Calcolo della media dei numeri inseriti
+                    media = CalcolaMedia(valori);
+
+                    // Stampa della media calcolata
+                    Console.WriteLine($"La media di questi numeri è: {media}");
+                    break;
+                }
 
 
 
