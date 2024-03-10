@@ -183,7 +183,7 @@ int scelta; // Variabile per memorizzare la scelta dell'utente
 do
 {
     // Menu delle opzioni disponibili
-    Console.WriteLine($"Di che hai bisogno {nome}?");
+    Console.WriteLine($"\nDi che hai bisogno {nome}?");
     Console.WriteLine("Digita 0 per arrestare il programma");
     Console.WriteLine("Digita 1 per il generatore di numeri");
     Console.WriteLine("Digita 2 per il calcolatore della media");
