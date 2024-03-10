@@ -143,7 +143,7 @@ if (confermaNome == "si")
             try
             {
                 bool entry = false;
-                Console.WriteLine("Inserisci ora una nuova password della lunghezza di almeno 5 caratteri e che contenga almeno un carattere speciale:");
+                Console.WriteLine("Inserisci ora una nuova password della lunghezza di almeno 5 caratteri:");
 
                 do
                 {
