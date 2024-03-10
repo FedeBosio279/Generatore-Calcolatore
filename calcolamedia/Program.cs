@@ -182,6 +182,7 @@ int scelta; // Variabile per memorizzare la scelta dell'utente
 
 do
 {
+
     // Menu delle opzioni disponibili
     Console.WriteLine($"\nDi che hai bisogno {nome}?");
     Console.WriteLine("Digita 0 per arrestare il programma");
