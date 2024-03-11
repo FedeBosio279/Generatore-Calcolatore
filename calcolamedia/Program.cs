@@ -2,9 +2,6 @@ using System;
 using System.Collections.Generic;
 
 // Dichiarazione delle variabili
-Console.WriteLine("Inserisci il tuo nome:");
-string nome = Console.ReadLine();
-
 
 Random random = new Random();
 
@@ -12,23 +9,32 @@ Random random = new Random();
 decimal media;
 
 // Saluto iniziale
-Console.WriteLine($"Benvenut* {nome}");
+Console.WriteLine($"Benvenut*");
 Console.WriteLine("Per procedere con il programma, registrati");
 
-
-string nomeCompleto = "";
+string nome = "";
+string cognome = "";
 string confermaNome = "";
 
 
 // Loop per assicurarsi che il nome sia corretto
 do
 {
-    Console.WriteLine("Inserisci il tuo nome completo (Nome e Cognome)");
-    nomeCompleto = Console.ReadLine();
+    try
+    {
+        Console.WriteLine("Inserisci il tuo nome:");
+        nome = Console.ReadLine();
+        Console.WriteLine("Inserisci il tuo cognome:");
+        cognome = Console.ReadLine();
+    }
+    catch (FormatException)
+    {
+        Console.WriteLine("Errore: Assicurarsi di aver scritto un nome corretto");
+    }
 
     do
     {
-        Console.WriteLine($"Il tuo nome è quindi: {nomeCompleto}? (Si, No)");
+        Console.WriteLine($"Il tuo nome conpleto è quindi: {nome} {cognome}? (Si, No)");
         confermaNome = Console.ReadLine().Trim().ToLower();
 
         if (confermaNome != "si" && confermaNome != "no")
