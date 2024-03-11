@@ -441,30 +441,8 @@ do
 
                     try
                     {
-                        Console.WriteLine("Inserisci un numero:"); // Richiede all'utente di inserire un numero
-                        num1 = decimal.Parse(Console.ReadLine()); // Legge il numero inserito dall'utente
-                    }
-                    catch (FormatException)
-                    {
-                        Console.WriteLine("Errore: Inserire un numero valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
-                        continue; // Continua con il prossimo ciclo
-                    }
-
-                    try
-                    {
-                        Console.WriteLine("Inserisci un altro numero:"); // Richiede all'utente di inserire un numero
-                        num2 = (decimal.Parse(Console.ReadLine())); // Legge il numero inserito dall'utente
-                    }
-                    catch (FormatException)
-                    {
-                        Console.WriteLine("Errore: Inserire un numero valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
-                        continue; // Continua con il prossimo ciclo
-                    }
-
-                    try
-                    {
                         Console.WriteLine(
-                            "Che operazione vuoi eseguire?\nAddizione\nSottrazione\nMoltiplicazione\nDivisione"
+                            "Che operazione vuoi eseguire?\nAddizione\nSottrazione\nMoltiplicazione\nDivisione\nQuadrato\nCubo"
                         ); // Richiede all'utente di inserire un numero
                         sceltaB = (Console.ReadLine().ToUpper()); // Legge l'operazione inserita dall'utente
                     }
@@ -474,30 +452,69 @@ do
                         continue; // Continua con il prossimo ciclo
                     }
 
-                    // Esegue l'operazione richiesta dall'utente e stampa il risultato
-                    if (sceltaB == "ADDIZIONE")
+                    if (sceltaB == "QUADRATO")
                     {
-                        Console.WriteLine($"Il risultato è: {num1 + num2}"); // Effettua l'addizione e stampa il risultato
+                        Console.WriteLine("Inserisci un numero:");
+                        int num3 = Int32.Parse(Console.ReadLine());
+                        Console.WriteLine($"Il risultato è {num3 * num3}");
                     }
-                    else if (sceltaB == "SOTTRAZIONE")
+                    else if (sceltaB == "CUBO")
                     {
-                        Console.WriteLine($"Il risultato è: {num1 - num2}"); // Effettua la sottrazione e stampa il risultato
+                        Console.WriteLine("Inserisci un numero:");
+                        int num4 = Int32.Parse(Console.ReadLine());
+                        Console.WriteLine($"Il risultato è {num4 * num4 * num4}");
                     }
-                    else if (sceltaB == "MOLTIPLICAZIONE")
+                    else if (sceltaB == "ADDIZZIONE" || sceltaB == "SOTTRAZIONE" || sceltaB == "MOLTIPLICAZIONE" || sceltaB == "DIVISIONE")
                     {
-                        Console.WriteLine($"Il risultato è: {num1 * num2}"); // Effettua la moltiplicazione e stampa il risultato
-                    }
-                    else if (sceltaB == "DIVISIONE")
-                    {
-                        // Controlla se l'utente sta cercando di dividere per zero
-                        if (num2 == 0)
+                        try
                         {
-                            Console.WriteLine("Errore: Non si può dividere per 0"); // Stampa un messaggio di errore se l'utente vuole dividere per 0
+                            Console.WriteLine("Inserisci un numero:"); // Richiede all'utente di inserire un numero
+                            num1 = decimal.Parse(Console.ReadLine()); // Legge il numero inserito dall'utente
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Errore: Inserire un numero valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
                             continue; // Continua con il prossimo ciclo
                         }
-                        else
+
+                        try
                         {
-                            Console.WriteLine($"Il risultato è: {num1 / num2}"); // Effettua la divisione e stampa il risultato
+                            Console.WriteLine("Inserisci un altro numero:"); // Richiede all'utente di inserire un numero
+                            num2 = (decimal.Parse(Console.ReadLine())); // Legge il numero inserito dall'utente
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Errore: Inserire un numero valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
+                            continue; // Continua con il prossimo ciclo
+                        }
+
+                        // Esegue l'operazione richiesta dall'utente e stampa il risultato
+                        switch (sceltaB)
+                        {
+                            case "ADDIZIONE":
+                                Console.WriteLine($"Il risultato è: {num1 + num2}"); // Effettua l'addizione e stampa il risultato
+                                break;
+                            case "SOTTRAZIONE":
+                                Console.WriteLine($"Il risultato è: {num1 - num2}"); // Effettua la sottrazione e stampa il risultato
+                                break;
+                            case "MOLTIPLICAZIONE":
+                                Console.WriteLine($"Il risultato è: {num1 * num2}"); // Effettua la moltiplicazione e stampa il risultato
+                                break;
+                            case "DIVISIONE":
+                                // Controlla se l'utente sta cercando di dividere per zero
+                                if (num2 == 0)
+                                {
+                                    Console.WriteLine("Errore: Non si può dividere per 0"); // Stampa un messaggio di errore se l'utente vuole dividere per 0
+                                    continue; // Continua con il prossimo ciclo
+                                }
+                                else
+                                {
+                                    Console.WriteLine($"Il risultato è: {num1 / num2}"); // Effettua la divisione e stampa il risultato
+                                }
+                                break;
+                            default:
+                                Console.WriteLine("Selezione non valida"); // Stampa un messaggio se la selezione non è valida
+                                break;
                         }
                     }
                     break;
