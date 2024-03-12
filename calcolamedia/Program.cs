@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 Random random = new Random();
 
-
 decimal media;
 
 // Saluto iniziale
@@ -458,19 +457,49 @@ do
                         continue; // Continua con il prossimo ciclo
                     }
 
-                    if (sceltaB == "QUADRATO")
+                    switch (sceltaB)
                     {
-                        Console.WriteLine("Inserisci un numero:");
-                        int num3 = Int32.Parse(Console.ReadLine());
-                        Console.WriteLine($"Il risultato è {num3 * num3}");
+                        case "QUADRATO":
+                            try
+                            {
+                                Console.WriteLine("Inserisci un numero:");
+                                int num3 = Int32.Parse(Console.ReadLine());
+                                Console.WriteLine($"Il risultato è {num3 * num3}");
+                            }
+                            catch (FormatException)
+                            {
+                                Console.WriteLine("Errore: Assicurarsi di aver inserito un valore valido");
+                            }
+                            break;
+
+                        case "CUBO":
+                            try
+                            {
+                                Console.WriteLine("Inserisci un numero:");
+                                int num4 = Int32.Parse(Console.ReadLine());
+                                Console.WriteLine($"Il risultato è {num4 * num4 * num4}");
+                            }
+                            catch (FormatException)
+                            {
+                                Console.WriteLine("Errore: Assicurarsi di aver inserito un valore valido");
+                            }
+                            break;
+
+                        case "RADICE QUADRATA":
+                            try
+                            {
+                                Console.WriteLine("Inserisci un numero:");
+                                int num5 = Int32.Parse(Console.ReadLine());
+                                Console.WriteLine("Il risultato è " + Math.Sqrt(num5));
+                            }
+                            catch (FormatException)
+                            {
+                                Console.WriteLine("Errore: Assicurarsi di aver inserito un valore valido");
+                            }
+                            break;
                     }
-                    else if (sceltaB == "CUBO")
-                    {
-                        Console.WriteLine("Inserisci un numero:");
-                        int num4 = Int32.Parse(Console.ReadLine());
-                        Console.WriteLine($"Il risultato è {num4 * num4 * num4}");
-                    }
-                    else if (sceltaB == "ADDIZZIONE" || sceltaB == "SOTTRAZIONE" || sceltaB == "MOLTIPLICAZIONE" || sceltaB == "DIVISIONE")
+
+                    if (sceltaB == "ADDIZIONE" || sceltaB == "SOTTRAZIONE" || sceltaB == "MOLTIPLICAZIONE" || sceltaB == "DIVISIONE")
                     {
                         try
                         {
