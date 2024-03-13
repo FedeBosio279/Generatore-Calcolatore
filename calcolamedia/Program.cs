@@ -4,6 +4,16 @@ using System.Collections.Generic;
 string password3 = "";
 string password = "";
 int pass = 0;
+int pass1 = 0;
+int sceltaF = 0;
+string nome = "";
+string cognome = "";
+string confermaNome = "";
+string dataCompleta = "";
+string password2 = "";
+string nome2 = "";
+string cognome2 = "";
+string password4 = "";
 
 
 do
@@ -14,181 +24,263 @@ do
 
     decimal media;
 
-    // Saluto iniziale
-    Console.WriteLine($"Benvenut*");
-    Console.WriteLine("Per procedere con il programma, registrati");
-
-    string nome = "";
-    string cognome = "";
-    string confermaNome = "";
-    string dataCompleta = "";
-    string password2 = "";
-
-
-
-    // Loop per assicurarsi che il nome sia corretto
-    do
+    while (pass1 == 0)
     {
-        try
-        {
-            Console.WriteLine("Inserisci il tuo nome:");
-            nome = Console.ReadLine();
-            Console.WriteLine("Inserisci il tuo cognome:");
-            cognome = Console.ReadLine();
-        }
-        catch (FormatException)
-        {
-            Console.WriteLine("Errore: Assicurarsi di aver scritto un nome corretto");
-        }
+        // Saluto iniziale
+        Console.WriteLine($"Benvenut*");
+        Console.WriteLine("Per procedere con il programma, registrati");
+        pass = 2;
+        pass1 = 2;
+    }
 
+    while (pass1 == 1)
+    {
         do
         {
-            Console.WriteLine($"Il tuo nome completo è quindi: {nome} {cognome}? (Si, No)");
-            confermaNome = Console.ReadLine().Trim().ToLower();
-
-            if (confermaNome != "si" && confermaNome != "no")
+            try
             {
-                Console.WriteLine("Inserimento non valido. Rispondi 'Si' o 'No'.");
+                Console.WriteLine("Benvenut*");
+                Console.WriteLine("Per continuare col programma;\nDigitare 1 per accedere\nDigitare 2 per registrarsi");
+                sceltaF = Int32.Parse(Console.ReadLine());
+                if (sceltaF > 2 || sceltaF <= 0)
+                {
+                    Console.WriteLine("Errore: Assicurarsi di aver scritto 1 o 2");
+                }
             }
-        } while (confermaNome != "si" && confermaNome != "no");
-    } while (confermaNome == "no");
+            catch (FormatException)
+            {
+                Console.WriteLine("Errore: Assicurarsi di aver digitato 1 o 2");
+            }
+        } while (sceltaF > 2 || sceltaF <= 0);
+        pass1 = 3;
+    }
 
-
-    if (confermaNome == "si")
+    if (sceltaF == 1 && pass1 == 3)
     {
-        // Variabili per la data di nascita
-        int dataNascita = 0;
-        int meseNascita = 0;
-        int annoNascita = 0;
-        string dataCompletaConferma = "";
-
-        // Loop per richiedere e confermare la data di nascita
         do
         {
-            // Richiesta del giorno di nascita
-            do
+            try
             {
-                try
-                {
-                    Console.WriteLine("Inserisci ora la tua data di nascita\nGiorno? es (02, 12, 31)");
-                    dataNascita = Int32.Parse(Console.ReadLine());
-                    if (dataNascita > 31 || dataNascita < 1)
-                    {
-                        Console.WriteLine(
-                            "Errore: assicurarsi che il giorno sia stato inserito in modo corretto"
-                        );
-                    }
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Errore: Assicurarsi di aver inserito un valore numerico intero");
-                }
-            } while (dataNascita > 31 || dataNascita < 1);
 
-            // Richiesta del mese di nascita
-            do
-            {
-                try
+                Console.WriteLine("Inserisci il nome:");
+                nome2 = Console.ReadLine();
+                if (nome2 == nome)
                 {
-                    Console.WriteLine("Mese? es (1, 2, 5, 12)");
-                    meseNascita = Int32.Parse(Console.ReadLine());
-                    if (meseNascita < 1 || meseNascita > 12)
-                    {
-                        Console.WriteLine(
-                            "Errore: assicurarsi che il mese sia stato inserito nel modo corretto"
-                        );
-                    }
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Errore: Assicurarsi di aver inserito un valore numerico intero");
-                }
-            } while (meseNascita < 1 || meseNascita > 12);
-
-            // Richiesta dell'anno di nascita
-            do
-            {
-                try
-                {
-                    Console.WriteLine("Inserire l'anno (1104 - 2024)");
-                    annoNascita = Int32.Parse(Console.ReadLine());
-                    if (annoNascita < 1104 || annoNascita > 2024)
-                    {
-                        Console.WriteLine(
-                            "Errore: assicurarsi che l'anno sia compreso tra il 1104 e il 2024"
-                        );
-                    }
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Errore: Assicurarsi di aver inserito un valore numerico intero");
-                }
-            } while (annoNascita < 1104 || annoNascita > 2024);
-
-            // Conferma della data di nascita
-            do
-            {
-                try
-                {
-                    Console.WriteLine(
-                $"La tua data di nascita è quindi: {dataNascita}/{meseNascita}/{annoNascita}? (Si, No)"
-            );
-                    dataCompleta = $"{dataNascita}/{meseNascita}/{annoNascita}";
-                    dataCompletaConferma = Console.ReadLine().Trim().ToLower();
-
-                    if (dataCompletaConferma != "si" && dataCompletaConferma != "no")
-                    {
-                        Console.WriteLine("Inserimento non valido. Rispondi 'Si' o 'No'.");
-                    }
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Errore: Assicurarsi di aver inserito \"si\" oppure \"no\"");
-                }
-            } while (dataCompletaConferma != "si" && dataCompletaConferma != "no");
-        } while (dataCompletaConferma == "no");
-
-        // Se la data di nascita è confermata, chiedi e conferma la password
-        if (dataCompletaConferma == "si")
-        {
-
-            do
-            {
-                try
-                {
-                    bool entry = false;
-                    Console.WriteLine("Inserisci ora una nuova password della lunghezza di almeno 5 caratteri:");
-
                     do
                     {
-                        password = Console.ReadLine();
-
-                        if (password.Length >= 5)
+                        Console.WriteLine("Inserisci il cognome:");
+                        cognome2 = Console.ReadLine();
+                        if (cognome2 == cognome)
                         {
-                            entry = true;
+                            do
+                            {
+                                Console.WriteLine("Inserisci la tua password:");
+                                password4 = Console.ReadLine();
+                                if (password4 == password)
+                                {
+                                    Console.WriteLine("Accesso effettuato con successo!");
+                                    pass1 = 4;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Errore: Password errata");
+                                }
+                            } while (password4 != password);
                         }
                         else
                         {
-                            Console.WriteLine("Errore: La password deve contenere almeno 5 caratteri, riprova");
+                            Console.WriteLine("Errore: Cognome non esistente");
                         }
-                    } while (entry == false);
+                    } while (cognome2 != cognome);
 
-                    Console.WriteLine("Ripeti la password:");
-                    password2 = Console.ReadLine();
-
-                    if (password != password2)
-                    {
-                        Console.WriteLine("Errore: le password non corrispondono");
-                    }
                 }
-                catch (Exception)
+
+                else
                 {
-                    Console.WriteLine("Errore: inserisci una password valida");
-                    return;
+                    Console.WriteLine("Errore: nome non esistente");
                 }
-            } while (password != password2);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Errore: assicurarsi di non aver inserito numeri");
+            }
+        } while (nome2 != nome);
+    }
+    else if (sceltaF == 2 && pass1 == 3)
+    {
+        pass1 = 2;
+    }
 
-            Console.WriteLine("Password aggiornata con successo, accesso effettuato");
+    // Loop per assicurarsi che il nome sia corretto
+    while (pass1 == 2)
+    {
+        do
+        {
+            try
+            {
+                Console.WriteLine("Inserisci il tuo nome:");
+                nome = Console.ReadLine();
+                Console.WriteLine("Inserisci il tuo cognome:");
+                cognome = Console.ReadLine();
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Errore: Assicurarsi di aver scritto un nome corretto");
+            }
+
+            do
+            {
+                Console.WriteLine($"Il tuo nome completo è quindi: {nome} {cognome}? (Si, No)");
+                confermaNome = Console.ReadLine().Trim().ToLower();
+
+                if (confermaNome != "si" && confermaNome != "no")
+                {
+                    Console.WriteLine("Inserimento non valido. Rispondi 'Si' o 'No'.");
+                }
+            } while (confermaNome != "si" && confermaNome != "no");
+            pass1++;
+        } while (confermaNome == "no" || pass1 == 2);
+    }
+
+    while (pass1 == 3)
+    {
+        if (confermaNome == "si" || pass1 == 3)
+        {
+            // Variabili per la data di nascita
+            int dataNascita = 0;
+            int meseNascita = 0;
+            int annoNascita = 0;
+            string dataCompletaConferma = "";
+
+            // Loop per richiedere e confermare la data di nascita
+            do
+            {
+                // Richiesta del giorno di nascita
+                do
+                {
+                    try
+                    {
+                        Console.WriteLine("Inserisci ora la tua data di nascita\nGiorno? es (02, 12, 31)");
+                        dataNascita = Int32.Parse(Console.ReadLine());
+                        if (dataNascita > 31 || dataNascita < 1)
+                        {
+                            Console.WriteLine(
+                                "Errore: assicurarsi che il giorno sia stato inserito in modo corretto"
+                            );
+                        }
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Errore: Assicurarsi di aver inserito un valore numerico intero");
+                    }
+                } while (dataNascita > 31 || dataNascita < 1);
+
+                // Richiesta del mese di nascita
+                do
+                {
+                    try
+                    {
+                        Console.WriteLine("Mese? es (1, 2, 5, 12)");
+                        meseNascita = Int32.Parse(Console.ReadLine());
+                        if (meseNascita < 1 || meseNascita > 12)
+                        {
+                            Console.WriteLine(
+                                "Errore: assicurarsi che il mese sia stato inserito nel modo corretto"
+                            );
+                        }
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Errore: Assicurarsi di aver inserito un valore numerico intero");
+                    }
+                } while (meseNascita < 1 || meseNascita > 12);
+
+                // Richiesta dell'anno di nascita
+                do
+                {
+                    try
+                    {
+                        Console.WriteLine("Inserire l'anno (1104 - 2024)");
+                        annoNascita = Int32.Parse(Console.ReadLine());
+                        if (annoNascita < 1104 || annoNascita > 2024)
+                        {
+                            Console.WriteLine(
+                                "Errore: assicurarsi che l'anno sia compreso tra il 1104 e il 2024"
+                            );
+                        }
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Errore: Assicurarsi di aver inserito un valore numerico intero");
+                    }
+                } while (annoNascita < 1104 || annoNascita > 2024);
+
+                // Conferma della data di nascita
+                do
+                {
+                    try
+                    {
+                        Console.WriteLine(
+                    $"La tua data di nascita è quindi: {dataNascita}/{meseNascita}/{annoNascita}? (Si, No)"
+                );
+                        dataCompleta = $"{dataNascita}/{meseNascita}/{annoNascita}";
+                        dataCompletaConferma = Console.ReadLine().Trim().ToLower();
+
+                        if (dataCompletaConferma != "si" && dataCompletaConferma != "no")
+                        {
+                            Console.WriteLine("Inserimento non valido. Rispondi 'Si' o 'No'.");
+                        }
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Errore: Assicurarsi di aver inserito \"si\" oppure \"no\"");
+                    }
+                } while (dataCompletaConferma != "si" && dataCompletaConferma != "no");
+            } while (dataCompletaConferma == "no");
+
+            // Se la data di nascita è confermata, chiedi e conferma la password
+            if (dataCompletaConferma == "si")
+            {
+
+                do
+                {
+                    try
+                    {
+                        bool entry = false;
+                        Console.WriteLine("Inserisci ora una nuova password della lunghezza di almeno 5 caratteri:");
+
+                        do
+                        {
+                            password = Console.ReadLine();
+
+                            if (password.Length >= 5)
+                            {
+                                entry = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Errore: La password deve contenere almeno 5 caratteri, riprova");
+                            }
+                        } while (entry == false);
+
+                        Console.WriteLine("Ripeti la password:");
+                        password2 = Console.ReadLine();
+
+                        if (password != password2)
+                        {
+                            Console.WriteLine("Errore: le password non corrispondono");
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Errore: inserisci una password valida");
+                        return;
+                    }
+                } while (password != password2);
+
+                Console.WriteLine("Password aggiornata con successo, accesso effettuato");
+                pass1 = 5;
+            }
         }
     }
 
@@ -196,6 +288,7 @@ do
 
     do
     {
+        pass1 = 0;
 
         // Menu delle opzioni disponibili
         Console.WriteLine($"\nDi che hai bisogno {nome}?");
@@ -235,6 +328,7 @@ do
                                     {
                                         pass = 1;
                                         scelta = 0;
+                                        pass1 = 1;
                                         Console.WriteLine("Logout effettuato con successo");
                                     }
                                     else
@@ -937,7 +1031,7 @@ do
             Console.WriteLine("Errore: Inserire un numero valido.");
             scelta = -1; // Imposta un valore non valido per far ripetere il ciclo
         }
-    } while (scelta != 0 && (pass == 2)); // Ripeti finché l'utente non sceglie di terminare il programma
+    } while (scelta != 0 || (pass == 2) || (pass1 == 5));// Ripeti finché l'utente non sceglie di terminare il programma
 } while (pass == 1);
 
 Console.WriteLine("Grazie per aver usato il programma. Arrivederci!"); // Saluta l'utente quando termina il programma
