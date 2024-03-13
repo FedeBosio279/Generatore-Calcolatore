@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-string password3 = "a";
+string password3 = "";
 string password = "";
 int pass = 0;
 
