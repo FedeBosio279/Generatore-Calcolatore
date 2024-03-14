@@ -36,13 +36,21 @@ do
 
     while (pass1 == 1)
     {
+        // Un loop che continua finché la variabile pass1 è uguale a 1
         do
         {
             try
             {
-                Console.WriteLine("Benvenut*");
-                Console.WriteLine("Per continuare col programma;\nDigitare 1 per accedere\nDigitare 2 per registrarsi");
+                // Visualizza un messaggio di benvenuto e le opzioni per l'utente
+                Console.WriteLine("Benvenuto");
+                Console.WriteLine("Per continuare col programma;");
+                Console.WriteLine("Digitare 1 per accedere");
+                Console.WriteLine("Digitare 2 per registrarsi");
+
+                // Legge l'input dell'utente e lo converte in un intero
                 sceltaF = Int32.Parse(Console.ReadLine());
+
+                // Controlla se l'input è valido (1 o 2)
                 if (sceltaF > 2 || sceltaF <= 0)
                 {
                     Console.WriteLine("Errore: Assicurarsi di aver scritto 1 o 2");
@@ -52,33 +60,44 @@ do
             {
                 Console.WriteLine("Errore: Assicurarsi di aver digitato 1 o 2");
             }
-        } while (sceltaF > 2 || sceltaF <= 0);
-        pass1 = 3;
+        } while (sceltaF > 2 || sceltaF <= 0); // Continua il loop finché l'input non è 1 o 2
+
+        pass1 = 3; // Imposta pass1 a 3 per uscire dal loop esterno
     }
 
     if (sceltaF == 1 && pass1 == 3)
     {
+        // Se l'utente ha scelto di accedere e pass1 è 3, esegue il seguente blocco di codice
         do
         {
             try
             {
-
+                // Richiede e legge il nome dall'utente
                 Console.WriteLine("Inserisci il nome:");
                 nome2 = Console.ReadLine();
+
+                // Controlla se il nome inserito è uguale al nome registrato
                 if (nome2 == nome)
                 {
+                    // Se il nome è corretto, richiede e legge il cognome dall'utente
                     do
                     {
                         Console.WriteLine("Inserisci il cognome:");
                         cognome2 = Console.ReadLine();
+
+                        // Controlla se il cognome inserito è uguale al cognome registrato
                         if (cognome2 == cognome)
                         {
+                            // Se il cognome è corretto, richiede e legge la password dall'utente
                             do
                             {
                                 Console.WriteLine("Inserisci la tua password:");
                                 password4 = Console.ReadLine();
+
+                                // Controlla se la password inserita è corretta
                                 if (password4 == password)
                                 {
+                                    // Se la password è corretta, l'accesso è riuscito e imposta pass1 a 4
                                     Console.WriteLine("Accesso effettuato con successo!");
                                     pass1 = 4;
                                 }
@@ -86,16 +105,14 @@ do
                                 {
                                     Console.WriteLine("Errore: Password errata");
                                 }
-                            } while (password4 != password);
+                            } while (password4 != password); // Continua il loop finché la password non è corretta
                         }
                         else
                         {
                             Console.WriteLine("Errore: Cognome non esistente");
                         }
-                    } while (cognome2 != cognome);
-
+                    } while (cognome2 != cognome); // Continua il loop finché il cognome non è corretto
                 }
-
                 else
                 {
                     Console.WriteLine("Errore: nome non esistente");
@@ -105,20 +122,23 @@ do
             {
                 Console.WriteLine("Errore: assicurarsi di non aver inserito numeri");
             }
-        } while (nome2 != nome);
+        } while (nome2 != nome); // Continua il loop finché il nome non è corretto
     }
     else if (sceltaF == 2 && pass1 == 3)
     {
+        // Se l'utente ha scelto di registrarsi e pass1 è 3, imposta pass1 a 2 per uscire dal loop esterno
         pass1 = 2;
     }
 
     // Loop per assicurarsi che il nome sia corretto
     while (pass1 == 2)
     {
+        // Loop principale che continua finché la variabile pass1 è uguale a 2
         do
         {
             try
             {
+                // Richiede e legge il nome e il cognome dell'utente
                 Console.WriteLine("Inserisci il tuo nome:");
                 nome = Console.ReadLine();
                 Console.WriteLine("Inserisci il tuo cognome:");
@@ -131,17 +151,22 @@ do
 
             do
             {
+                // Chiede all'utente di confermare il nome completo
                 Console.WriteLine($"Il tuo nome completo è quindi: {nome} {cognome}? (Si, No)");
                 confermaNome = Console.ReadLine().Trim().ToLower();
 
+                // Controlla se la risposta è valida
                 if (confermaNome != "si" && confermaNome != "no")
                 {
                     Console.WriteLine("Inserimento non valido. Rispondi 'Si' o 'No'.");
                 }
             } while (confermaNome != "si" && confermaNome != "no");
+
+            // Incrementa pass1 per uscire dal loop principale
             pass1++;
-        } while (confermaNome == "no" || pass1 == 2);
+        } while (confermaNome == "no" || pass1 == 2); // Continua il loop se la conferma del nome è "no" o se pass1 è ancora 2
     }
+
 
     while (pass1 == 3)
     {
@@ -308,89 +333,6 @@ do
 
             switch (scelta)
             {
-                case 7:
-                    {
-                        do
-                        {
-                            try
-                            {
-                                Console.WriteLine("\nImpostazioni:\nAccount\nLogout\n\nTorna indietro");
-                                string sceltaE = Console.ReadLine().ToLower();
-                                if (sceltaE == "account")
-                                {
-                                    Console.WriteLine($"Account:\nNome:\t{nome}\nCognome:\t{cognome}\nData di nascita:\t{dataCompleta}\nCambia password\n\nTorna indietro");
-                                    sceltaG = Console.ReadLine().ToLower();
-
-                                    if (sceltaG == "torna indietro")
-                                    {
-                                        pass = 2;
-                                    }
-                                    else if (sceltaG == "cambia password")
-                                    {
-                                        string newPassword;
-                                        do
-                                        {
-                                            Console.WriteLine("Inserisci la password corrente:");
-                                            string currentPassword = Console.ReadLine();
-
-                                            if (currentPassword == password)
-                                            {
-                                                Console.WriteLine("Inserisci la nuova password (almeno 5 caratteri):");
-                                                newPassword = Console.ReadLine();
-
-                                                if (newPassword.Length < 5)
-                                                {
-                                                    Console.WriteLine("Errore: la password deve essere lunga almeno 5 caratteri");
-                                                }
-                                                else if (newPassword == password)
-                                                {
-                                                    Console.WriteLine("Errore: la nuova password non può essere uguale alla precedente");
-                                                }
-                                                else
-                                                {
-                                                    Console.WriteLine("Nuova password aggiornata con successo!");
-                                                    password = newPassword;
-                                                    pass = 2;
-                                                }
-                                            }
-                                            else
-                                            {
-                                                Console.WriteLine("Password errata!");
-                                            }
-                                        } while (pass != 2);
-                                    }
-                                }
-
-                                else if (sceltaE == "logout")
-                                {
-                                    Console.WriteLine("Immetti la tua password");
-                                    password3 = Console.ReadLine();
-                                    if (password3 == password)
-                                    {
-                                        pass = 1;
-                                        scelta = 0;
-                                        pass1 = 1;
-                                        Console.WriteLine("Logout effettuato con successo");
-                                    }
-                                    else
-                                    {
-                                        Console.WriteLine("Password incorretta");
-                                    }
-                                }
-
-                                else if (sceltaE == "torna indietro")
-                                {
-                                    pass = 2; // Imposta la variabile di passaggio su 1 per uscire dal ciclo
-                                }
-                            }
-                            catch (FormatException)
-                            {
-                                Console.WriteLine("Errore: Assicurarsi di aver inserito una delle opzioni");
-                            }
-                        } while (pass != 2 && pass != 1); // Termina il ciclo quando l'utente sceglie "Torna indietro"
-                        break;
-                    }
-
                 case 0:
                     {
                         return; // Termina il programma se l'utente sceglie 0
@@ -1056,6 +998,92 @@ do
                             Console.Write($"{input} non appare nella lista.");
                         }
                         pass = 2;
+                        break;
+                    }
+                case 7:
+                    {
+                        // Caso 7: Gestione delle impostazioni dell'account
+                        do
+                        {
+                            try
+                            {
+                                // Visualizza le opzioni di impostazione dell'account
+                                Console.WriteLine("\nImpostazioni:\nAccount\nLogout\n\nTorna indietro");
+                                string sceltaE = Console.ReadLine().ToLower();
+
+                                if (sceltaE == "account")
+                                {
+                                    // Se l'utente sceglie "account", mostra le informazioni dell'account e le opzioni aggiuntive
+                                    Console.WriteLine($"Account:\nNome:\t{nome}\nCognome:\t{cognome}\nData di nascita:\t{dataCompleta}\nCambia password\n\nTorna indietro");
+                                    sceltaG = Console.ReadLine().ToLower();
+
+                                    if (sceltaG == "torna indietro")
+                                    {
+                                        pass = 2; // Imposta la variabile di passaggio su 2 per uscire dal ciclo
+                                    }
+                                    else if (sceltaG == "cambia password")
+                                    {
+                                        // Se l'utente sceglie di cambiare la password, esegui il seguente blocco di codice
+                                        string newPassword;
+                                        do
+                                        {
+                                            Console.WriteLine("Inserisci la password corrente:");
+                                            string currentPassword = Console.ReadLine();
+
+                                            if (currentPassword == password)
+                                            {
+                                                Console.WriteLine("Inserisci la nuova password (almeno 5 caratteri):");
+                                                newPassword = Console.ReadLine();
+
+                                                if (newPassword.Length < 5)
+                                                {
+                                                    Console.WriteLine("Errore: la password deve essere lunga almeno 5 caratteri");
+                                                }
+                                                else if (newPassword == password)
+                                                {
+                                                    Console.WriteLine("Errore: la nuova password non può essere uguale alla precedente");
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine("Nuova password aggiornata con successo!");
+                                                    password = newPassword;
+                                                    pass = 2; // Imposta la variabile di passaggio su 2 per uscire dal ciclo
+                                                }
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("Password errata!");
+                                            }
+                                        } while (pass != 2); // Continua il ciclo finché la password non è stata cambiata correttamente
+                                    }
+                                }
+                                else if (sceltaE == "logout")
+                                {
+                                    // Se l'utente sceglie "logout", richiede la password per confermare e quindi esce dall'account
+                                    Console.WriteLine("Immetti la tua password");
+                                    password3 = Console.ReadLine();
+                                    if (password3 == password)
+                                    {
+                                        pass = 1; // Imposta la variabile di passaggio su 1 per uscire dall'account
+                                        scelta = 0;
+                                        pass1 = 1;
+                                        Console.WriteLine("Logout effettuato con successo");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Password incorretta");
+                                    }
+                                }
+                                else if (sceltaE == "torna indietro")
+                                {
+                                    pass = 2; // Imposta la variabile di passaggio su 2 per uscire dal ciclo
+                                }
+                            }
+                            catch (FormatException)
+                            {
+                                Console.WriteLine("Errore: Assicurarsi di aver inserito una delle opzioni");
+                            }
+                        } while (pass != 2 && pass != 1); // Termina il ciclo quando l'utente sceglie "Torna indietro" o effettua il logout
                         break;
                     }
 
