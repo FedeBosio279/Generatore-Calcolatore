@@ -14,6 +14,7 @@ string password2 = "";
 string nome2 = "";
 string cognome2 = "";
 string password4 = "";
+string sceltaG = "";
 
 
 do
@@ -313,13 +314,53 @@ do
                         {
                             try
                             {
-                                Console.WriteLine("\nImpostazioni:\nAccount\nLogout\nTorna indietro");
+                                Console.WriteLine("\nImpostazioni:\nAccount\nLogout\n\nTorna indietro");
                                 string sceltaE = Console.ReadLine().ToLower();
                                 if (sceltaE == "account")
                                 {
-                                    Console.WriteLine($"Account:\nNome:\t{nome}\nCognome:\t{cognome}\nData di nascita:\t{dataCompleta}");
-                                    pass = 2;
+                                    Console.WriteLine($"Account:\nNome:\t{nome}\nCognome:\t{cognome}\nData di nascita:\t{dataCompleta}\nCambia password\n\nTorna indietro");
+                                    sceltaG = Console.ReadLine().ToLower();
+
+                                    if (sceltaG == "torna indietro")
+                                    {
+                                        pass = 2;
+                                    }
+                                    else if (sceltaG == "cambia password")
+                                    {
+                                        string newPassword;
+                                        do
+                                        {
+                                            Console.WriteLine("Inserisci la password corrente:");
+                                            string currentPassword = Console.ReadLine();
+
+                                            if (currentPassword == password)
+                                            {
+                                                Console.WriteLine("Inserisci la nuova password (almeno 5 caratteri):");
+                                                newPassword = Console.ReadLine();
+
+                                                if (newPassword.Length < 5)
+                                                {
+                                                    Console.WriteLine("Errore: la password deve essere lunga almeno 5 caratteri");
+                                                }
+                                                else if (newPassword == password)
+                                                {
+                                                    Console.WriteLine("Errore: la nuova password non può essere uguale alla precedente");
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine("Nuova password aggiornata con successo!");
+                                                    password = newPassword;
+                                                    pass = 2;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("Password errata!");
+                                            }
+                                        } while (pass != 2);
+                                    }
                                 }
+
                                 else if (sceltaE == "logout")
                                 {
                                     Console.WriteLine("Immetti la tua password");
@@ -336,6 +377,7 @@ do
                                         Console.WriteLine("Password incorretta");
                                     }
                                 }
+
                                 else if (sceltaE == "torna indietro")
                                 {
                                     pass = 2; // Imposta la variabile di passaggio su 1 per uscire dal ciclo
@@ -590,7 +632,6 @@ do
                         decimal num1;
                         decimal num2;
                         string sceltaB;
-                        int arrot;
 
                         try
                         {
