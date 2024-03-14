@@ -1015,13 +1015,13 @@ do
                                 {
                                     // Se l'utente sceglie "account", mostra le informazioni dell'account e le opzioni aggiuntive
                                     Console.WriteLine($"Account:\nNome:\t{nome}\nCognome:\t{cognome}\nData di nascita:\t{dataCompleta}\nCambia password\n\nTorna indietro");
-                                    sceltaG = Console.ReadLine().ToLower();
+                                    sceltaG = Console.ReadLine().ToLower().Trim();
 
-                                    if (sceltaG == "torna indietro")
+                                    if (sceltaG == "tornaindietro")
                                     {
                                         pass = 2; // Imposta la variabile di passaggio su 2 per uscire dal ciclo
                                     }
-                                    else if (sceltaG == "cambia password")
+                                    else if (sceltaG == "cambiapassword")
                                     {
                                         // Se l'utente sceglie di cambiare la password, esegui il seguente blocco di codice
                                         string newPassword;
