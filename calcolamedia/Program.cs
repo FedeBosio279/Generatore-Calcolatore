@@ -21,7 +21,7 @@ do
 {
     // Dichiarazione delle variabili
 
-    Random random = new Random();
+    Random random = new();
 
     decimal media;
 
