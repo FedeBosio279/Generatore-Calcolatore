@@ -606,7 +606,12 @@ do
                                 try
                                 {
                                     Console.WriteLine("Inserisci un numero:");
-                                    int num3 = Int32.Parse(Console.ReadLine());
+                                    string input = Console.ReadLine();
+
+                                    // Sostituisci la virgola con il punto
+                                    input = input.Replace(",", ".");
+
+                                    decimal num3 = Convert.ToDecimal(input);
                                     Console.WriteLine($"Il risultato è {num3 * num3}");
                                 }
                                 catch (FormatException)
@@ -619,7 +624,12 @@ do
                                 try
                                 {
                                     Console.WriteLine("Inserisci un numero:");
-                                    int num4 = Int32.Parse(Console.ReadLine());
+                                    string input = Console.ReadLine();
+
+                                    // Sostituisci la virgola con il punto
+                                    input = input.Replace(",", ".");
+
+                                    decimal num4 = Convert.ToDecimal(input);
                                     Console.WriteLine($"Il risultato è {num4 * num4 * num4}");
                                 }
                                 catch (FormatException)
@@ -632,8 +642,13 @@ do
                                 try
                                 {
                                     Console.WriteLine("Inserisci un numero:");
-                                    int num5 = Int32.Parse(Console.ReadLine());
-                                    Console.WriteLine("Il risultato è " + Math.Sqrt(num5));
+                                    string input = Console.ReadLine();
+
+                                    // Sostituisci la virgola con il punto
+                                    input = input.Replace(",", ".");
+
+                                    double num5 = Convert.ToDouble(input);
+                                    Console.WriteLine("Il risultato è " + (Math.Sqrt(num5)));
                                 }
                                 catch (FormatException)
                                 {
@@ -642,23 +657,26 @@ do
                                 break;
                         }
 
+
                         if (sceltaB == "ADDIZIONE" || sceltaB == "SOTTRAZIONE" || sceltaB == "MOLTIPLICAZIONE" || sceltaB == "DIVISIONE")
                         {
                             try
                             {
                                 Console.WriteLine("Inserisci un numero:"); // Richiede all'utente di inserire un numero
-                                num1 = decimal.Parse(Console.ReadLine()); // Legge il numero inserito dall'utente
-                            }
-                            catch (FormatException)
-                            {
-                                Console.WriteLine("Errore: Inserire un numero valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
-                                continue; // Continua con il prossimo ciclo
-                            }
+                                string inputNum1 = Console.ReadLine();
 
-                            try
-                            {
+                                // Sostituisci la virgola con il punto
+                                inputNum1 = inputNum1.Replace(",", ".");
+
+                                num1 = Convert.ToDecimal(inputNum1); // Legge il numero inserito dall'utente
+
                                 Console.WriteLine("Inserisci un altro numero:"); // Richiede all'utente di inserire un numero
-                                num2 = (decimal.Parse(Console.ReadLine())); // Legge il numero inserito dall'utente
+                                string inputNum2 = Console.ReadLine();
+
+                                // Sostituisci la virgola con il punto
+                                inputNum2 = inputNum2.Replace(",", ".");
+
+                                num2 = Convert.ToDecimal(inputNum2); // Legge il numero inserito dall'utente
                             }
                             catch (FormatException)
                             {
