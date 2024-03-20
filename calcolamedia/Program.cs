@@ -1,21 +1,33 @@
 using System;
 using System.Collections.Generic;
 
-string password3 = "";
-string password = "";
-int pass = 0;
-int pass1 = 0;
-int sceltaF = 0;
-string nome = "";
-string cognome = "";
-string confermaNome = "";
-string dataCompleta = "";
-string password2 = "";
-string nome2 = "";
-string cognome2 = "";
-string password4 = "";
-string sceltaG = "";
+// Variabili per gestire le password dell'utente
+string password = "";     // Variabile per la password principale
+string password2 = "";    // Variabile per una seconda password (potrebbe essere utilizzata per confronti o verifiche)
+string password3 = "";    // Variabile per la password utilizzata durante la procedura di logout
+string password4 = "";    // Variabile per la nuova password inserita dall'utente durante la procedura di cambio password
 
+// Variabili di controllo per il flusso del programma
+int pass = 0;             // Variabile per il passaggio tra le fasi del programma
+int pass1 = 0;            // Variabile per il passaggio tra le fasi specifiche dell'autenticazione e della registrazione
+
+// Variabili per gestire i nomi dell'utente
+string nome = "";         // Variabile per memorizzare il nome dell'utente
+string nome2 = "";        // Variabile per memorizzare un secondo nome durante la procedura di autenticazione
+
+// Variabili per gestire i cognomi dell'utente
+string cognome = "";      // Variabile per memorizzare il cognome dell'utente
+string cognome2 = "";     // Variabile per memorizzare un secondo cognome durante la procedura di autenticazione
+
+// Variabile per confermare il nome dell'utente
+string confermaNome = ""; // Variabile per la conferma del nome completo dell'utente
+
+// Variabile per memorizzare la data di nascita dell'utente
+string dataCompleta = ""; // Variabile per memorizzare la data di nascita completa dell'utente
+
+// Variabili per gestire le scelte dell'utente
+string sceltaG = "";      // Variabile per memorizzare la scelta dell'utente durante la procedura di autenticazione o registrazione
+int sceltaF = 0;          // Variabile per memorizzare la scelta dell'utente durante le fasi iniziali del programma
 
 do
 {
