@@ -1,21 +1,33 @@
 using System;
 using System.Collections.Generic;
 
-string password3 = "";
-string password = "";
-int pass = 0;
-int pass1 = 0;
-int sceltaF = 0;
-string nome = "";
-string cognome = "";
-string confermaNome = "";
-string dataCompleta = "";
-string password2 = "";
-string nome2 = "";
-string cognome2 = "";
-string password4 = "";
-string sceltaG = "";
+// Variabili per gestire le password dell'utente
+string password = "";     // Variabile per la password principale
+string password2 = "";    // Variabile per una seconda password (potrebbe essere utilizzata per confronti o verifiche)
+string password3 = "";    // Variabile per la password utilizzata durante la procedura di logout
+string password4 = "";    // Variabile per la nuova password inserita dall'utente durante la procedura di cambio password
 
+// Variabili di controllo per il flusso del programma
+int pass = 0;             // Variabile per il passaggio tra le fasi del programma
+int pass1 = 0;            // Variabile per il passaggio tra le fasi specifiche dell'autenticazione e della registrazione
+
+// Variabili per gestire i nomi dell'utente
+string nome = "";         // Variabile per memorizzare il nome dell'utente
+string nome2 = "";        // Variabile per memorizzare un secondo nome durante la procedura di autenticazione
+
+// Variabili per gestire i cognomi dell'utente
+string cognome = "";      // Variabile per memorizzare il cognome dell'utente
+string cognome2 = "";     // Variabile per memorizzare un secondo cognome durante la procedura di autenticazione
+
+// Variabile per confermare il nome dell'utente
+string confermaNome = ""; // Variabile per la conferma del nome completo dell'utente
+
+// Variabile per memorizzare la data di nascita dell'utente
+string dataCompleta = ""; // Variabile per memorizzare la data di nascita completa dell'utente
+
+// Variabili per gestire le scelte dell'utente
+string sceltaG = "";      // Variabile per memorizzare la scelta dell'utente durante la procedura di autenticazione o registrazione
+int sceltaF = 0;          // Variabile per memorizzare la scelta dell'utente durante le fasi iniziali del programma
 
 do
 {
@@ -594,7 +606,12 @@ do
                                 try
                                 {
                                     Console.WriteLine("Inserisci un numero:");
-                                    int num3 = Int32.Parse(Console.ReadLine());
+                                    string input = Console.ReadLine();
+
+                                    // Sostituisci la virgola con il punto
+                                    input = input.Replace(",", ".");
+
+                                    decimal num3 = Convert.ToDecimal(input);
                                     Console.WriteLine($"Il risultato è {num3 * num3}");
                                 }
                                 catch (FormatException)
@@ -607,7 +624,12 @@ do
                                 try
                                 {
                                     Console.WriteLine("Inserisci un numero:");
-                                    int num4 = Int32.Parse(Console.ReadLine());
+                                    string input = Console.ReadLine();
+
+                                    // Sostituisci la virgola con il punto
+                                    input = input.Replace(",", ".");
+
+                                    decimal num4 = Convert.ToDecimal(input);
                                     Console.WriteLine($"Il risultato è {num4 * num4 * num4}");
                                 }
                                 catch (FormatException)
@@ -620,8 +642,13 @@ do
                                 try
                                 {
                                     Console.WriteLine("Inserisci un numero:");
-                                    int num5 = Int32.Parse(Console.ReadLine());
-                                    Console.WriteLine("Il risultato è " + Math.Sqrt(num5));
+                                    string input = Console.ReadLine();
+
+                                    // Sostituisci la virgola con il punto
+                                    input = input.Replace(",", ".");
+
+                                    double num5 = Convert.ToDouble(input);
+                                    Console.WriteLine("Il risultato è " + (Math.Sqrt(num5)));
                                 }
                                 catch (FormatException)
                                 {
@@ -630,23 +657,26 @@ do
                                 break;
                         }
 
+
                         if (sceltaB == "ADDIZIONE" || sceltaB == "SOTTRAZIONE" || sceltaB == "MOLTIPLICAZIONE" || sceltaB == "DIVISIONE")
                         {
                             try
                             {
                                 Console.WriteLine("Inserisci un numero:"); // Richiede all'utente di inserire un numero
-                                num1 = decimal.Parse(Console.ReadLine()); // Legge il numero inserito dall'utente
-                            }
-                            catch (FormatException)
-                            {
-                                Console.WriteLine("Errore: Inserire un numero valido."); // Stampa un messaggio di errore se l'utente non inserisce un numero
-                                continue; // Continua con il prossimo ciclo
-                            }
+                                string inputNum1 = Console.ReadLine();
 
-                            try
-                            {
+                                // Sostituisci la virgola con il punto
+                                inputNum1 = inputNum1.Replace(",", ".");
+
+                                num1 = Convert.ToDecimal(inputNum1); // Legge il numero inserito dall'utente
+
                                 Console.WriteLine("Inserisci un altro numero:"); // Richiede all'utente di inserire un numero
-                                num2 = (decimal.Parse(Console.ReadLine())); // Legge il numero inserito dall'utente
+                                string inputNum2 = Console.ReadLine();
+
+                                // Sostituisci la virgola con il punto
+                                inputNum2 = inputNum2.Replace(",", ".");
+
+                                num2 = Convert.ToDecimal(inputNum2); // Legge il numero inserito dall'utente
                             }
                             catch (FormatException)
                             {
@@ -1086,6 +1116,372 @@ do
                         } while (pass != 2 && pass != 1); // Termina il ciclo quando l'utente sceglie "Torna indietro" o effettua il logout
                         break;
                     }
+                case 8:
+                    {
+                        Console.WriteLine("Benvenuto nella calcolatrice geometrica");
+                        Console.WriteLine("Scegli una figura geometrica (quadrato, rettangolo, triangolo, cerchio, rombo, parallelogramma):");
+                        string figuraScelta = Console.ReadLine().ToLower();
+
+                        switch (figuraScelta)
+                        {
+                            case "quadrato":
+                                {
+                                    Console.WriteLine("Vuoi calcolare l'area o il perimetro?");
+                                    string scelta2 = Console.ReadLine().ToLower();
+                                    if (scelta2 == "area")
+                                    {
+                                        Console.WriteLine("Inserisci il lato:");
+                                        string inputLato = Console.ReadLine();
+
+                                        // Controlla se l'input contiene una virgola o un punto
+                                        if (inputLato.Contains(".") || inputLato.Contains(","))
+                                        {
+                                            // Sostituisci la virgola con il punto per evitare errori di conversione
+                                            inputLato = inputLato.Replace(",", ".");
+                                        }
+
+                                        // Converti la stringa in un valore decimale
+                                        decimal lato = Convert.ToDecimal(inputLato);
+
+                                        Console.WriteLine($"L'area è {lato * lato}");
+                                    }
+                                    else if (scelta2 == "perimetro")
+                                    {
+                                        Console.WriteLine("Inserisci il lato:");
+                                        string inputLato = Console.ReadLine();
+
+                                        // Controlla se l'input contiene una virgola o un punto
+                                        if (inputLato.Contains(".") || inputLato.Contains(","))
+                                        {
+                                            // Sostituisci la virgola con il punto per evitare errori di conversione
+                                            inputLato = inputLato.Replace(",", ".");
+                                        }
+
+                                        // Converti la stringa in un valore decimale
+                                        decimal lato = Convert.ToDecimal(inputLato);
+
+                                        Console.WriteLine($"Il perimetro è: {lato * 4}");
+                                    }
+                                    break;
+                                }
+
+                            case "rettangolo":
+                                {
+                                    Console.WriteLine("Vuoi calcolare l'area o il perimetro?");
+                                    string scelta2 = Console.ReadLine().ToLower();
+                                    if (scelta2 == "area")
+                                    {
+                                        Console.WriteLine("Inserisci la base:");
+                                        string inputBase = Console.ReadLine();
+
+                                        // Controlla se l'input contiene una virgola o un punto
+                                        if (inputBase.Contains(".") || inputBase.Contains(","))
+                                        {
+                                            // Sostituisci la virgola con il punto per evitare errori di conversione
+                                            inputBase = inputBase.Replace(",", ".");
+                                        }
+
+                                        // Converti la stringa in un valore decimale
+                                        decimal baseRettangolo = Convert.ToDecimal(inputBase);
+
+                                        Console.WriteLine("Inserisci l'altezza:");
+                                        string inputAltezza = Console.ReadLine();
+
+                                        // Controlla se l'input contiene una virgola o un punto
+                                        if (inputAltezza.Contains(".") || inputAltezza.Contains(","))
+                                        {
+                                            // Sostituisci la virgola con il punto per evitare errori di conversione
+                                            inputAltezza = inputAltezza.Replace(",", ".");
+                                        }
+
+                                        // Converti la stringa in un valore decimale
+                                        decimal altezzaRettangolo = Convert.ToDecimal(inputAltezza);
+
+                                        Console.WriteLine($"L'area è {baseRettangolo * altezzaRettangolo}");
+                                    }
+                                    else if (scelta2 == "perimetro")
+                                    {
+                                        Console.WriteLine("Inserisci la base:");
+                                        string inputBase = Console.ReadLine();
+
+                                        // Controlla se l'input contiene una virgola o un punto
+                                        if (inputBase.Contains(".") || inputBase.Contains(","))
+                                        {
+                                            // Sostituisci la virgola con il punto per evitare errori di conversione
+                                            inputBase = inputBase.Replace(",", ".");
+                                        }
+
+                                        // Converti la stringa in un valore decimale
+                                        decimal baseRettangolo = Convert.ToDecimal(inputBase);
+
+                                        Console.WriteLine("Inserisci l'altezza:");
+                                        string inputAltezza = Console.ReadLine();
+
+                                        // Controlla se l'input contiene una virgola o un punto
+                                        if (inputAltezza.Contains(".") || inputAltezza.Contains(","))
+                                        {
+                                            // Sostituisci la virgola con il punto per evitare errori di conversione
+                                            inputAltezza = inputAltezza.Replace(",", ".");
+                                        }
+
+                                        // Converti la stringa in un valore decimale
+                                        decimal altezzaRettangolo = Convert.ToDecimal(inputAltezza);
+
+                                        Console.WriteLine($"Il perimetro è: {(baseRettangolo + altezzaRettangolo) * 2}");
+                                    }
+                                    break;
+                                }
+
+                            case "triangolo":
+                                {
+                                    Console.WriteLine("Vuoi calcolare l'area o il perimetro?");
+                                    string scelta2 = Console.ReadLine().ToLower();
+                                    if (scelta2 == "area")
+                                    {
+                                        Console.WriteLine("Inserisci la base:");
+                                        string inputBase = Console.ReadLine();
+
+                                        // Controlla se l'input contiene una virgola o un punto
+                                        if (inputBase.Contains(".") || inputBase.Contains(","))
+                                        {
+                                            // Sostituisci la virgola con il punto per evitare errori di conversione
+                                            inputBase = inputBase.Replace(",", ".");
+                                        }
+
+                                        // Converti la stringa in un valore decimale
+                                        decimal baseTriangolo = Convert.ToDecimal(inputBase);
+
+                                        Console.WriteLine("Inserisci l'altezza:");
+                                        string inputAltezza = Console.ReadLine();
+
+                                        // Controlla se l'input contiene una virgola o un punto
+                                        if (inputAltezza.Contains(".") || inputAltezza.Contains(","))
+                                        {
+                                            // Sostituisci la virgola con il punto per evitare errori di conversione
+                                            inputAltezza = inputAltezza.Replace(",", ".");
+                                        }
+
+                                        // Converti la stringa in un valore decimale
+                                        decimal altezzaTriangolo = Convert.ToDecimal(inputAltezza);
+
+                                        Console.WriteLine($"L'area è {0.5m * (baseTriangolo * altezzaTriangolo)}");
+                                    }
+                                    else if (scelta2 == "perimetro")
+                                    {
+                                        Console.WriteLine("Inserisci il lato 1:");
+                                        string inputLato1 = Console.ReadLine();
+
+                                        // Controlla se l'input contiene una virgola o un punto
+                                        if (inputLato1.Contains(".") || inputLato1.Contains(","))
+                                        {
+                                            // Sostituisci la virgola con il punto per evitare errori di conversione
+                                            inputLato1 = inputLato1.Replace(",", ".");
+                                        }
+
+                                        // Converti la stringa in un valore decimale
+                                        decimal lato1Triangolo = Convert.ToDecimal(inputLato1);
+
+                                        Console.WriteLine("Inserisci il lato 2:");
+                                        string inputLato2 = Console.ReadLine();
+
+                                        // Controlla se l'input contiene una virgola o un punto
+                                        if (inputLato2.Contains(".") || inputLato2.Contains(","))
+                                        {
+                                            // Sostituisci la virgola con il punto per evitare errori di conversione
+                                            inputLato2 = inputLato2.Replace(",", ".");
+                                        }
+
+                                        // Converti la stringa in un valore decimale
+                                        decimal lato2Triangolo = Convert.ToDecimal(inputLato2);
+
+                                        Console.WriteLine("Inserisci il lato 3:");
+                                        string inputLato3 = Console.ReadLine();
+
+                                        // Controlla se l'input contiene una virgola o un punto
+                                        if (inputLato3.Contains(".") || inputLato3.Contains(","))
+                                        {
+                                            // Sostituisci la virgola con il punto per evitare errori di conversione
+                                            inputLato3 = inputLato3.Replace(",", ".");
+                                        }
+
+                                        // Converti la stringa in un valore decimale
+                                        decimal lato3Triangolo = Convert.ToDecimal(inputLato3);
+
+                                        Console.WriteLine($"Il perimetro è: {lato1Triangolo + lato2Triangolo + lato3Triangolo}");
+                                    }
+                                    break;
+                                }
+
+                            case "cerchio":
+                                {
+                                    Console.WriteLine("Vuoi calcolare l'area o la circonferenza?");
+                                    string scelta2 = Console.ReadLine().ToLower();
+                                    if (scelta2 == "area")
+                                    {
+                                        Console.WriteLine("Inserisci il raggio:");
+                                        string inputRaggio = Console.ReadLine();
+
+                                        // Controlla se l'input contiene una virgola o un punto
+                                        if (inputRaggio.Contains(".") || inputRaggio.Contains(","))
+                                        {
+                                            // Sostituisci la virgola con il punto per evitare errori di conversione
+                                            inputRaggio = inputRaggio.Replace(",", ".");
+                                        }
+
+                                        // Converti la stringa in un valore decimale
+                                        decimal raggio = Convert.ToDecimal(inputRaggio);
+
+                                        Console.WriteLine($"L'area è {(decimal)Math.PI * raggio * raggio}");
+                                    }
+                                    else if (scelta2 == "circonferenza")
+                                    {
+                                        Console.WriteLine("Inserisci il raggio:");
+                                        string inputRaggio = Console.ReadLine();
+
+                                        // Controlla se l'input contiene una virgola o un punto
+                                        if (inputRaggio.Contains(".") || inputRaggio.Contains(","))
+                                        {
+                                            // Sostituisci la virgola con il punto per evitare errori di conversione
+                                            inputRaggio = inputRaggio.Replace(",", ".");
+                                        }
+
+                                        // Converti la stringa in un valore decimale
+                                        decimal raggio = Convert.ToDecimal(inputRaggio);
+
+                                        Console.WriteLine($"La circonferenza è: {((raggio * 2) * (decimal)Math.PI)}");
+                                    }
+                                    break;
+                                }
+
+                            case "parallelogramma":
+                                {
+                                    Console.WriteLine("Vuoi calcolare l'area o il perimetro?");
+                                    string scelta2 = Console.ReadLine().ToLower();
+                                    if (scelta2 == "area")
+                                    {
+                                        Console.WriteLine("Inserisci la base:");
+                                        string inputBase = Console.ReadLine();
+
+                                        // Controlla se l'input contiene una virgola o un punto
+                                        if (inputBase.Contains(".") || inputBase.Contains(","))
+                                        {
+                                            // Sostituisci la virgola con il punto per evitare errori di conversione
+                                            inputBase = inputBase.Replace(",", ".");
+                                        }
+
+                                        // Converti la stringa in un valore decimale
+                                        decimal baseParallelogramma = Convert.ToDecimal(inputBase);
+
+                                        Console.WriteLine("Inserisci l'altezza:");
+                                        string inputAltezza = Console.ReadLine();
+
+                                        // Controlla se l'input contiene una virgola o un punto
+                                        if (inputAltezza.Contains(".") || inputAltezza.Contains(","))
+                                        {
+                                            // Sostituisci la virgola con il punto per evitare errori di conversione
+                                            inputAltezza = inputAltezza.Replace(",", ".");
+                                        }
+
+                                        // Converti la stringa in un valore decimale
+                                        decimal altezzaParallelogramma = Convert.ToDecimal(inputAltezza);
+
+                                        Console.WriteLine($"L'area è {baseParallelogramma * altezzaParallelogramma}");
+                                    }
+                                    else if (scelta2 == "perimetro")
+                                    {
+                                        Console.WriteLine("Inserisci la lunghezza del lato:");
+                                        string inputLato = Console.ReadLine();
+
+                                        // Controlla se l'input contiene una virgola o un punto
+                                        if (inputLato.Contains(".") || inputLato.Contains(","))
+                                        {
+                                            // Sostituisci la virgola con il punto per evitare errori di conversione
+                                            inputLato = inputLato.Replace(",", ".");
+                                        }
+
+                                        // Converti la stringa in un valore decimale
+                                        decimal latoParallelogramma = Convert.ToDecimal(inputLato);
+
+                                        Console.WriteLine("Inserisci la lunghezza dell'altro lato:");
+                                        string inputLatoOpposto = Console.ReadLine();
+
+                                        // Controlla se l'input contiene una virgola o un punto
+                                        if (inputLatoOpposto.Contains(".") || inputLatoOpposto.Contains(","))
+                                        {
+                                            // Sostituisci la virgola con il punto per evitare errori di conversione
+                                            inputLatoOpposto = inputLatoOpposto.Replace(",", ".");
+                                        }
+
+                                        // Converti la stringa in un valore decimale
+                                        decimal latoOppostoParallelogramma = Convert.ToDecimal(inputLatoOpposto);
+
+                                        Console.WriteLine($"Il perimetro è: {2 * (latoParallelogramma + latoOppostoParallelogramma)}");
+                                    }
+                                    break;
+                                }
+
+                            case "rombo":
+                                {
+                                    Console.WriteLine("Vuoi calcolare l'area o il perimetro?");
+                                    string scelta2 = Console.ReadLine().ToLower();
+                                    if (scelta2 == "area")
+                                    {
+                                        Console.WriteLine("Inserisci la diagonale maggiore:");
+                                        string inputDiagonaleMaggiore = Console.ReadLine();
+
+                                        // Controlla se l'input contiene una virgola o un punto
+                                        if (inputDiagonaleMaggiore.Contains(".") || inputDiagonaleMaggiore.Contains(","))
+                                        {
+                                            // Sostituisci la virgola con il punto per evitare errori di conversione
+                                            inputDiagonaleMaggiore = inputDiagonaleMaggiore.Replace(",", ".");
+                                        }
+
+                                        // Converti la stringa in un valore decimale
+                                        decimal diagonaleMaggiore = Convert.ToDecimal(inputDiagonaleMaggiore);
+
+                                        Console.WriteLine("Inserisci la diagonale minore:");
+                                        string inputDiagonaleMinore = Console.ReadLine();
+
+                                        // Controlla se l'input contiene una virgola o un punto
+                                        if (inputDiagonaleMinore.Contains(".") || inputDiagonaleMinore.Contains(","))
+                                        {
+                                            // Sostituisci la virgola con il punto per evitare errori di conversione
+                                            inputDiagonaleMinore = inputDiagonaleMinore.Replace(",", ".");
+                                        }
+
+                                        // Converti la stringa in un valore decimale
+                                        decimal diagonaleMinore = Convert.ToDecimal(inputDiagonaleMinore);
+
+                                        decimal areaRombo = (diagonaleMaggiore * diagonaleMinore) / 2;
+                                        Console.WriteLine($"L'area è {areaRombo}");
+                                    }
+                                    else if (scelta2 == "perimetro")
+                                    {
+                                        Console.WriteLine("Inserisci il lato:");
+                                        string inputLato = Console.ReadLine();
+
+                                        // Controlla se l'input contiene una virgola o un punto
+                                        if (inputLato.Contains(".") || inputLato.Contains(","))
+                                        {
+                                            // Sostituisci la virgola con il punto per evitare errori di conversione
+                                            inputLato = inputLato.Replace(",", ".");
+                                        }
+
+                                        // Converti la stringa in un valore decimale
+                                        decimal latoRombo = Convert.ToDecimal(inputLato);
+
+                                        Console.WriteLine($"Il perimetro è: {4 * latoRombo}");
+                                    }
+                                    break;
+                                }
+
+                            default:
+                                Console.WriteLine("Figura geometrica non riconosciuta.");
+                                break;
+                        }
+                        break;
+                    }
+
 
                 default:
                     {
