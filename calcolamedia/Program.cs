@@ -165,9 +165,7 @@ do
             {
                 // Chiede all'utente di confermare il nome completo
                 Console.WriteLine($"Il tuo nome completo è quindi: {nome} {cognome}? (Si, No)");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 confermaNome = Console.ReadLine().Trim().ToLower();
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                 // Controlla se la risposta è valida
                 if (confermaNome != "si" && confermaNome != "no")
@@ -264,9 +262,7 @@ do
                     $"La tua data di nascita è quindi: {dataNascita}/{meseNascita}/{annoNascita}? (Si, No)"
                 );
                         dataCompleta = $"{dataNascita}/{meseNascita}/{annoNascita}";
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                         dataCompletaConferma = Console.ReadLine().Trim().ToLower();
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                         if (dataCompletaConferma != "si" && dataCompletaConferma != "no")
                         {
@@ -295,7 +291,6 @@ do
                         {
                             password = Console.ReadLine();
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                             if (password.Length >= 5)
                             {
                                 entry = true;
@@ -304,7 +299,6 @@ do
                             {
                                 Console.WriteLine("Errore: La password deve contenere almeno 5 caratteri, riprova");
                             }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
                         } while (entry == false);
 
                         Console.WriteLine("Ripeti la password:");
@@ -423,7 +417,6 @@ do
 
                         // Ciclo per continuare a richiedere numeri finché l'utente desidera inserirne
                         do
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                         {
                             int numero;
 
@@ -445,7 +438,6 @@ do
                             Console.WriteLine("Vuoi inserire un altro numero? (Si/No)");
                             scelta2 = Console.ReadLine(); // Legge la scelta dell'utente
                         } while (scelta2.ToUpper() == "SI"); // Continua a richiedere numeri fintanto che l'utente risponde "Si"
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                         // Calcolo della media dei numeri inseriti
                         media = CalcolaMedia(valori);
@@ -471,9 +463,7 @@ do
                         string sceltaA;
                         do
                         {
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                             sceltaA = Console.ReadLine().ToUpper(); // Legge la risposta dell'utente e la converte in maiuscolo
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                             if (sceltaA != "SI" && sceltaA != "NO")
                             {
@@ -603,9 +593,7 @@ do
                             Console.WriteLine(
                                 "Che operazione vuoi eseguire?\nAddizione\nSottrazione\nMoltiplicazione\nDivisione\nQuadrato\nCubo\nRadice Quadrata"
                             ); // Richiede all'utente di inserire un numero
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                             sceltaB = (Console.ReadLine().ToUpper()); // Legge l'operazione inserita dall'utente
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
                         }
                         catch (FormatException)
                         {
@@ -622,9 +610,7 @@ do
                                     string input = Console.ReadLine();
 
                                     // Sostituisci la virgola con il punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                                     input = input.Replace(",", ".");
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                     decimal num3 = Convert.ToDecimal(input);
                                     Console.WriteLine($"Il risultato è {num3 * num3}");
@@ -642,9 +628,7 @@ do
                                     string input = Console.ReadLine();
 
                                     // Sostituisci la virgola con il punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                                     input = input.Replace(",", ".");
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                     decimal num4 = Convert.ToDecimal(input);
                                     Console.WriteLine($"Il risultato è {num4 * num4 * num4}");
@@ -662,9 +646,7 @@ do
                                     string input = Console.ReadLine();
 
                                     // Sostituisci la virgola con il punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                                     input = input.Replace(",", ".");
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                     double num5 = Convert.ToDouble(input);
                                     Console.WriteLine("Il risultato è " + (Math.Sqrt(num5)));
@@ -685,9 +667,7 @@ do
                                 string inputNum1 = Console.ReadLine();
 
                                 // Sostituisci la virgola con il punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                                 inputNum1 = inputNum1.Replace(",", ".");
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                 num1 = Convert.ToDecimal(inputNum1); // Legge il numero inserito dall'utente
 
@@ -695,9 +675,7 @@ do
                                 string inputNum2 = Console.ReadLine();
 
                                 // Sostituisci la virgola con il punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                                 inputNum2 = inputNum2.Replace(",", ".");
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                 num2 = Convert.ToDecimal(inputNum2); // Legge il numero inserito dall'utente
                             }
@@ -1022,15 +1000,11 @@ do
                 case 6:
                     {
                         Console.WriteLine("Inserisci una lista di nomi separati da virgole");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                         var inputNomi = Console.ReadLine().ToLower();
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
                         string[] nomi = inputNomi.Split(',');
 
                         Console.WriteLine("Che nome vuoi cercare?");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                         string input = Console.ReadLine().ToLower().Trim();
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                         int count = 0;
 
@@ -1066,17 +1040,13 @@ do
                             {
                                 // Visualizza le opzioni di impostazione dell'account
                                 Console.WriteLine("\nImpostazioni:\nAccount\nLogout\n\nTorna indietro");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                                 string sceltaE = Console.ReadLine().ToLower();
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                 if (sceltaE == "account")
                                 {
                                     // Se l'utente sceglie "account", mostra le informazioni dell'account e le opzioni aggiuntive
                                     Console.WriteLine($"Account:\nNome:\t{nome}\nCognome:\t{cognome}\nData di nascita:\t{dataCompleta}\nCambia password\n\nTorna indietro");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                                     sceltaG = Console.ReadLine().ToLower().Trim();
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                     if (sceltaG == "tornaindietro")
                                     {
@@ -1096,7 +1066,6 @@ do
                                                 Console.WriteLine("Inserisci la nuova password (almeno 5 caratteri):");
                                                 newPassword = Console.ReadLine();
 
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                                                 if (newPassword.Length < 5)
                                                 {
                                                     Console.WriteLine("Errore: la password deve essere lunga almeno 5 caratteri");
@@ -1111,7 +1080,6 @@ do
                                                     password = newPassword;
                                                     pass = 2; // Imposta la variabile di passaggio su 2 per uscire dal ciclo
                                                 }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
                                             }
                                             else
                                             {
@@ -1154,31 +1122,25 @@ do
                     {
                         Console.WriteLine("Benvenuto nella calcolatrice geometrica");
                         Console.WriteLine("Scegli una figura geometrica (quadrato, rettangolo, triangolo, cerchio, rombo, parallelogramma):");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                         string figuraScelta = Console.ReadLine().ToLower();
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                         switch (figuraScelta)
                         {
                             case "quadrato":
                                 {
                                     Console.WriteLine("Vuoi calcolare l'area o il perimetro?");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                                     string scelta2 = Console.ReadLine().ToLower();
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
                                     if (scelta2 == "area")
                                     {
                                         Console.WriteLine("Inserisci il lato:");
                                         string inputLato = Console.ReadLine();
 
                                         // Controlla se l'input contiene una virgola o un punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                                        if (inputLato.Contains(".") || inputLato.Contains(","))
+                                        if (inputLato.Contains('.'))
                                         {
                                             // Sostituisci la virgola con il punto per evitare errori di conversione
-                                            inputLato = inputLato.Replace(",", ".");
+                                            inputLato = inputLato.Replace(".", ",");
                                         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                         // Converti la stringa in un valore decimale
                                         decimal lato = Convert.ToDecimal(inputLato);
@@ -1191,13 +1153,11 @@ do
                                         string inputLato = Console.ReadLine();
 
                                         // Controlla se l'input contiene una virgola o un punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                                        if (inputLato.Contains(".") || inputLato.Contains(","))
+                                        if (inputLato.Contains('.'))
                                         {
                                             // Sostituisci la virgola con il punto per evitare errori di conversione
-                                            inputLato = inputLato.Replace(",", ".");
+                                            inputLato = inputLato.Replace(".", ",");
                                         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                         // Converti la stringa in un valore decimale
                                         decimal lato = Convert.ToDecimal(inputLato);
@@ -1210,22 +1170,18 @@ do
                             case "rettangolo":
                                 {
                                     Console.WriteLine("Vuoi calcolare l'area o il perimetro?");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                                     string scelta2 = Console.ReadLine().ToLower();
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
                                     if (scelta2 == "area")
                                     {
                                         Console.WriteLine("Inserisci la base:");
                                         string inputBase = Console.ReadLine();
 
                                         // Controlla se l'input contiene una virgola o un punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                                        if (inputBase.Contains(".") || inputBase.Contains(","))
+                                        if (inputBase.Contains('.'))
                                         {
                                             // Sostituisci la virgola con il punto per evitare errori di conversione
-                                            inputBase = inputBase.Replace(",", ".");
+                                            inputBase = inputBase.Replace(".", ",");
                                         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                         // Converti la stringa in un valore decimale
                                         decimal baseRettangolo = Convert.ToDecimal(inputBase);
@@ -1234,13 +1190,11 @@ do
                                         string inputAltezza = Console.ReadLine();
 
                                         // Controlla se l'input contiene una virgola o un punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                                        if (inputAltezza.Contains(".") || inputAltezza.Contains(","))
+                                        if (inputAltezza.Contains('.'))
                                         {
                                             // Sostituisci la virgola con il punto per evitare errori di conversione
-                                            inputAltezza = inputAltezza.Replace(",", ".");
+                                            inputAltezza = inputAltezza .Replace(".", ",");
                                         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                         // Converti la stringa in un valore decimale
                                         decimal altezzaRettangolo = Convert.ToDecimal(inputAltezza);
@@ -1253,13 +1207,11 @@ do
                                         string inputBase = Console.ReadLine();
 
                                         // Controlla se l'input contiene una virgola o un punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                                        if (inputBase.Contains(".") || inputBase.Contains(","))
+                                       if (inputBase.Contains('.'))
                                         {
                                             // Sostituisci la virgola con il punto per evitare errori di conversione
-                                            inputBase = inputBase.Replace(",", ".");
+                                            inputBase = inputBase.Replace(".", ",");
                                         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                         // Converti la stringa in un valore decimale
                                         decimal baseRettangolo = Convert.ToDecimal(inputBase);
@@ -1268,13 +1220,11 @@ do
                                         string inputAltezza = Console.ReadLine();
 
                                         // Controlla se l'input contiene una virgola o un punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                                        if (inputAltezza.Contains(".") || inputAltezza.Contains(","))
+                                        if (inputAltezza.Contains('.'))
                                         {
                                             // Sostituisci la virgola con il punto per evitare errori di conversione
-                                            inputAltezza = inputAltezza.Replace(",", ".");
+                                            inputAltezza = inputAltezza.Replace(".", ",");
                                         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                         // Converti la stringa in un valore decimale
                                         decimal altezzaRettangolo = Convert.ToDecimal(inputAltezza);
@@ -1287,22 +1237,18 @@ do
                             case "triangolo":
                                 {
                                     Console.WriteLine("Vuoi calcolare l'area o il perimetro?");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                                     string scelta2 = Console.ReadLine().ToLower();
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
                                     if (scelta2 == "area")
                                     {
                                         Console.WriteLine("Inserisci la base:");
                                         string inputBase = Console.ReadLine();
 
                                         // Controlla se l'input contiene una virgola o un punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                                        if (inputBase.Contains(".") || inputBase.Contains(","))
+                                       if (inputBase.Contains('.'))
                                         {
                                             // Sostituisci la virgola con il punto per evitare errori di conversione
-                                            inputBase = inputBase.Replace(",", ".");
+                                            inputBase = inputBase.Replace(".", ",");
                                         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                         // Converti la stringa in un valore decimale
                                         decimal baseTriangolo = Convert.ToDecimal(inputBase);
@@ -1311,13 +1257,11 @@ do
                                         string inputAltezza = Console.ReadLine();
 
                                         // Controlla se l'input contiene una virgola o un punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                                        if (inputAltezza.Contains(".") || inputAltezza.Contains(","))
+                                        if (inputAltezza.Contains('.'))
                                         {
                                             // Sostituisci la virgola con il punto per evitare errori di conversione
-                                            inputAltezza = inputAltezza.Replace(",", ".");
+                                            inputAltezza = inputAltezza.Replace(".", ",");
                                         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                         // Converti la stringa in un valore decimale
                                         decimal altezzaTriangolo = Convert.ToDecimal(inputAltezza);
@@ -1330,13 +1274,11 @@ do
                                         string inputLato1 = Console.ReadLine();
 
                                         // Controlla se l'input contiene una virgola o un punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                                        if (inputLato1.Contains(".") || inputLato1.Contains(","))
+                                        if (inputLato1.Contains('.'))
                                         {
                                             // Sostituisci la virgola con il punto per evitare errori di conversione
-                                            inputLato1 = inputLato1.Replace(",", ".");
+                                            inputLato1 = inputLato1.Replace(".", ",");
                                         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                         // Converti la stringa in un valore decimale
                                         decimal lato1Triangolo = Convert.ToDecimal(inputLato1);
@@ -1345,13 +1287,11 @@ do
                                         string inputLato2 = Console.ReadLine();
 
                                         // Controlla se l'input contiene una virgola o un punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                                        if (inputLato2.Contains(".") || inputLato2.Contains(","))
+                                        if (inputLato2.Contains('.'))
                                         {
                                             // Sostituisci la virgola con il punto per evitare errori di conversione
-                                            inputLato2 = inputLato2.Replace(",", ".");
+                                            inputLato2 = inputLato2.Replace(".", ",");
                                         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                         // Converti la stringa in un valore decimale
                                         decimal lato2Triangolo = Convert.ToDecimal(inputLato2);
@@ -1360,13 +1300,11 @@ do
                                         string inputLato3 = Console.ReadLine();
 
                                         // Controlla se l'input contiene una virgola o un punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                                        if (inputLato3.Contains(".") || inputLato3.Contains(","))
+                                        if (inputLato3.Contains('.'))
                                         {
                                             // Sostituisci la virgola con il punto per evitare errori di conversione
-                                            inputLato3 = inputLato3.Replace(",", ".");
+                                            inputLato3 = inputLato3.Replace(".", ",");
                                         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                         // Converti la stringa in un valore decimale
                                         decimal lato3Triangolo = Convert.ToDecimal(inputLato3);
@@ -1379,27 +1317,23 @@ do
                             case "cerchio":
                                 {
                                     Console.WriteLine("Vuoi calcolare l'area o la circonferenza?");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                                     string scelta2 = Console.ReadLine().ToLower();
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
                                     if (scelta2 == "area")
                                     {
                                         Console.WriteLine("Inserisci il raggio:");
                                         string inputRaggio = Console.ReadLine();
 
                                         // Controlla se l'input contiene una virgola o un punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                                        if (inputRaggio.Contains(".") || inputRaggio.Contains(","))
+                                        if (inputRaggio.Contains('.'))
                                         {
                                             // Sostituisci la virgola con il punto per evitare errori di conversione
-                                            inputRaggio = inputRaggio.Replace(",", ".");
+                                            inputRaggio = inputRaggio.Replace(".", ",");
                                         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                         // Converti la stringa in un valore decimale
                                         decimal raggio = Convert.ToDecimal(inputRaggio);
 
-                                        Console.WriteLine($"L'area è {(decimal)Math.PI * raggio * raggio}");
+                                        Console.WriteLine($"L'area è {(decimal)Math.PI * (raggio * raggio)}");
                                     }
                                     else if (scelta2 == "circonferenza")
                                     {
@@ -1407,18 +1341,16 @@ do
                                         string inputRaggio = Console.ReadLine();
 
                                         // Controlla se l'input contiene una virgola o un punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                                        if (inputRaggio.Contains(".") || inputRaggio.Contains(","))
+                                        if (inputRaggio.Contains('.'))
                                         {
                                             // Sostituisci la virgola con il punto per evitare errori di conversione
-                                            inputRaggio = inputRaggio.Replace(",", ".");
+                                            inputRaggio = inputRaggio.Replace(".", ",");
                                         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                         // Converti la stringa in un valore decimale
                                         decimal raggio = Convert.ToDecimal(inputRaggio);
 
-                                        Console.WriteLine($"La circonferenza è: {((raggio * 2) * (decimal)Math.PI)}");
+                                        Console.WriteLine($"La circonferenza è: {(raggio * 2) * (decimal)Math.PI}");
                                     }
                                     break;
                                 }
@@ -1426,22 +1358,18 @@ do
                             case "parallelogramma":
                                 {
                                     Console.WriteLine("Vuoi calcolare l'area o il perimetro?");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                                     string scelta2 = Console.ReadLine().ToLower();
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
                                     if (scelta2 == "area")
                                     {
                                         Console.WriteLine("Inserisci la base:");
                                         string inputBase = Console.ReadLine();
 
                                         // Controlla se l'input contiene una virgola o un punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                                        if (inputBase.Contains(".") || inputBase.Contains(","))
+                                        if (inputBase.Contains('.'))
                                         {
                                             // Sostituisci la virgola con il punto per evitare errori di conversione
-                                            inputBase = inputBase.Replace(",", ".");
+                                            inputBase = inputBase.Replace(".", ",");
                                         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                         // Converti la stringa in un valore decimale
                                         decimal baseParallelogramma = Convert.ToDecimal(inputBase);
@@ -1450,13 +1378,11 @@ do
                                         string inputAltezza = Console.ReadLine();
 
                                         // Controlla se l'input contiene una virgola o un punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                                        if (inputAltezza.Contains(".") || inputAltezza.Contains(","))
+                                        if (inputAltezza.Contains('.'))
                                         {
                                             // Sostituisci la virgola con il punto per evitare errori di conversione
-                                            inputAltezza = inputAltezza.Replace(",", ".");
+                                            inputAltezza = inputAltezza.Replace(".", ",");
                                         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                         // Converti la stringa in un valore decimale
                                         decimal altezzaParallelogramma = Convert.ToDecimal(inputAltezza);
@@ -1469,13 +1395,11 @@ do
                                         string inputLato = Console.ReadLine();
 
                                         // Controlla se l'input contiene una virgola o un punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                                        if (inputLato.Contains(".") || inputLato.Contains(","))
+                                        if (inputLato.Contains('.'))
                                         {
                                             // Sostituisci la virgola con il punto per evitare errori di conversione
-                                            inputLato = inputLato.Replace(",", ".");
+                                            inputLato = inputLato.Replace(".", ",");
                                         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                         // Converti la stringa in un valore decimale
                                         decimal latoParallelogramma = Convert.ToDecimal(inputLato);
@@ -1484,13 +1408,11 @@ do
                                         string inputLatoOpposto = Console.ReadLine();
 
                                         // Controlla se l'input contiene una virgola o un punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                                        if (inputLatoOpposto.Contains(".") || inputLatoOpposto.Contains(","))
+                                        if (inputLatoOpposto.Contains('.'))
                                         {
                                             // Sostituisci la virgola con il punto per evitare errori di conversione
-                                            inputLatoOpposto = inputLatoOpposto.Replace(",", ".");
+                                            inputLatoOpposto = inputLatoOpposto.Replace(".", ",");
                                         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                         // Converti la stringa in un valore decimale
                                         decimal latoOppostoParallelogramma = Convert.ToDecimal(inputLatoOpposto);
@@ -1503,22 +1425,18 @@ do
                             case "rombo":
                                 {
                                     Console.WriteLine("Vuoi calcolare l'area o il perimetro?");
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
                                     string scelta2 = Console.ReadLine().ToLower();
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
                                     if (scelta2 == "area")
                                     {
                                         Console.WriteLine("Inserisci la diagonale maggiore:");
                                         string inputDiagonaleMaggiore = Console.ReadLine();
 
                                         // Controlla se l'input contiene una virgola o un punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                                        if (inputDiagonaleMaggiore.Contains(".") || inputDiagonaleMaggiore.Contains(","))
+                                        if (inputDiagonaleMaggiore.Contains('.'))
                                         {
                                             // Sostituisci la virgola con il punto per evitare errori di conversione
-                                            inputDiagonaleMaggiore = inputDiagonaleMaggiore.Replace(",", ".");
+                                            inputDiagonaleMaggiore = inputDiagonaleMaggiore.Replace(".", ",");
                                         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                         // Converti la stringa in un valore decimale
                                         decimal diagonaleMaggiore = Convert.ToDecimal(inputDiagonaleMaggiore);
@@ -1527,13 +1445,11 @@ do
                                         string inputDiagonaleMinore = Console.ReadLine();
 
                                         // Controlla se l'input contiene una virgola o un punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                                        if (inputDiagonaleMinore.Contains(".") || inputDiagonaleMinore.Contains(","))
+                                        if (inputDiagonaleMinore.Contains('.'))
                                         {
                                             // Sostituisci la virgola con il punto per evitare errori di conversione
-                                            inputDiagonaleMinore = inputDiagonaleMinore.Replace(",", ".");
+                                            inputDiagonaleMinore = inputDiagonaleMinore.Replace(".", ",");
                                         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                         // Converti la stringa in un valore decimale
                                         decimal diagonaleMinore = Convert.ToDecimal(inputDiagonaleMinore);
@@ -1547,13 +1463,11 @@ do
                                         string inputLato = Console.ReadLine();
 
                                         // Controlla se l'input contiene una virgola o un punto
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-                                        if (inputLato.Contains(".") || inputLato.Contains(","))
+                                        if (inputLato.Contains('.'))
                                         {
                                             // Sostituisci la virgola con il punto per evitare errori di conversione
-                                            inputLato = inputLato.Replace(",", ".");
+                                            inputLato = inputLato.Replace(".", ",");
                                         }
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
                                         // Converti la stringa in un valore decimale
                                         decimal latoRombo = Convert.ToDecimal(inputLato);
